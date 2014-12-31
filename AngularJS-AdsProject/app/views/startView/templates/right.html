@@ -1,0 +1,37 @@
+<div class="col-md-2" ng-controller="rightCtr">
+    <div class="panel panel-default">
+        <div class="panel-heading text-center">Selected filters</div>
+        <div class="panel-body">
+            <div class="panel panel-default">
+                <div class="panel-heading text-center">Category</div>
+                <div class="panel-body">
+                    {{$parent.selectedFilters.categoryFilter.name || 'All'}}
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading text-center">Town</div>
+                <div class="panel-body">
+                    {{$parent.selectedFilters.townFilter.name || 'All'}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading text-center">Categories</div>
+        <div class="panel-body">
+            <p><a href="" ng-click="setCategoryFilter('')">All</a>
+            </p>
+            <p ng-repeat="category in $parent.categoriesData | limitTo:5"><a href="" ng-click="setCategoryFilter(category)">{{category.name}}</a>
+            </p>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading text-center">Towns</div>
+        <div class="panel-body">
+            <p><a href="" ng-click="setTownFilter('')">All</a>
+            </p>
+            <p ng-repeat="town in $parent.townsData | limitTo:5 "><a href="" ng-click="setTownFilter(town) ">{{town.name}}</a>
+            </p>
+        </div>
+    </div>
+</div>

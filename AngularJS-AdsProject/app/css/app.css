@@ -1,3 +1,10 @@
 h2 {
     margin-top: 10px;
 }
+img {
+    width: 230px;
+    max-height: 400px;
+}
+button {
+    width: 150px;
+}

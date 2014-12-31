@@ -1,0 +1,24 @@
+<div class="row" ng-controller="MainCtr">
+    <div class="navbar navbar-default">
+        <div class="container">
+            <div class="row" ng-include="'./views/startView/templates/header.html'">
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <aside class="col-md-2" ng-include="'./views/startView/templates/left.html'"></aside>
+            <main ng-include="'./views/startView/templates/main.html'"></main>
+            <aside ng-include="'./views/startView/templates/right.html'"></aside>
+        </div>
+    </div>
+    <footer>
+        <div class="row">
+            <div class="container-fluid">
+                <div class="panel">
+                    <h4 class="text-center">© 2015 by Presian Danailov, No Rights Reserved</h4>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
