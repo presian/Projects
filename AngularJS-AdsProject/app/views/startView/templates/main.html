@@ -1,8 +1,6 @@
 <div class="col-md-8">
-    <div class="text-center">
-        <div data-pagination total-items="$parent.pageInfo.bigTotalItems" ng-model="$parent.pageInfo.bigCurrentPage" max-size="5" class="pagination-md" items-per-page="$parent.pageInfo.adsPerPage" boundary-links="true"></div>
-    </div>
-    <div class="panel panel-default" ng-repeat="(i, ad) in filtrateAds">
+    <div class="text-center" ng-include="'./views/startView/templates/paging.html'"></div>
+    <div class="panel panel-default" ng-repeat="ad in ads">
         <div class="panel-heading">
             <div class="row">
                 <div class="col-md-10">
@@ -41,7 +39,5 @@
             </div>
         </div>
     </div>
-    <div class="text-center" ng-include="'./views/startView/templates/footer.html'">
-        <!--   <div data-pagination total-items="$parent.pageInfo.bigTotalItems" ng-model="$parent.pageInfo.bigCurrentPage" max-size="5" class="pagination-md" items-per-page="$parent.pageInfo.adsPerPage" boundary-links="true"></div> -->
-    </div>
+    <div class="text-center" ng-include="'./views/startView/templates/paging.html'"></div>
 </div>

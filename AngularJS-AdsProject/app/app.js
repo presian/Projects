@@ -1,6 +1,5 @@
 'use strict';
 
-// Declare app level module which depends on views, and components
 angular.module('app', [
         'ngRoute',
         'ngResource',
@@ -8,8 +7,12 @@ angular.module('app', [
         'app.startView',
         'app.login'
     ])
-    .config(['$routeProvider', function($routeProvider) {
-        $routeProvider.otherwise({
-            redirectTo: '/'
-        });
-    }]);
+    .config(['$routeProvider', '$locationProvider',
+        function($routeProvider, $locationProvider) {
+            $routeProvider.otherwise({
+                redirectTo: '/'
+            });
+            $locationProvider.html5Mode(true);
+        }
+    ])
+    .constant('BASE_URL', 'http://localhost:1337/api/');

@@ -1,37 +1,26 @@
 <div class="col-md-2" ng-controller="rightCtr">
-    <div class="panel panel-default">
-        <div class="panel-heading text-center">Selected filters</div>
-        <div class="panel-body">
-            <div class="panel panel-default">
-                <div class="panel-heading text-center">Category</div>
-                <div class="panel-body">
-                    {{$parent.selectedFilters.categoryFilter.name || 'All'}}
-                </div>
-            </div>
-            <div class="panel panel-default">
-                <div class="panel-heading text-center">Town</div>
-                <div class="panel-body">
-                    {{$parent.selectedFilters.townFilter.name || 'All'}}
-                </div>
-            </div>
-        </div>
+    <div class="form-group">
+        <label for="town">Select Town:</label>
+        <select class="form-control" id="town" ng-model="$parent.getAdsData.townFilter">
+            <option value="">All</option>
+            <option value="{{town.id}}" ng-repeat="town in townsData">{{town.name}}</option>
+        </select>
     </div>
-    <div class="panel panel-default">
-        <div class="panel-heading text-center">Categories</div>
-        <div class="panel-body">
-            <p><a href="" ng-click="setCategoryFilter('')">All</a>
-            </p>
-            <p ng-repeat="category in $parent.categoriesData | limitTo:5"><a href="" ng-click="setCategoryFilter(category)">{{category.name}}</a>
-            </p>
-        </div>
+    <div class="form-group">
+        <label for="categoty">Select Category:</label>
+        <select class="form-control" id="categoty" ng-model="$parent.getAdsData.categoryFilter">
+            <option value="">All</option>
+            <option value="{{categoty.id}}" ng-repeat="categoty in categoriesData">{{categoty.name}}</option>
+        </select>
     </div>
-    <div class="panel panel-default">
-        <div class="panel-heading text-center">Towns</div>
-        <div class="panel-body">
-            <p><a href="" ng-click="setTownFilter('')">All</a>
-            </p>
-            <p ng-repeat="town in $parent.townsData | limitTo:5 "><a href="" ng-click="setTownFilter(town) ">{{town.name}}</a>
-            </p>
-        </div>
+    <div class="form-group">
+        <label for="pageSize">Ads per page:</label>
+        <select class="form-control" id="pageSize" ng-model="$parent.getAdsData.pageSize">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
     </div>
 </div>

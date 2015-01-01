@@ -1,69 +1,39 @@
 'use strict';
 
 startView.controller('MainCtr', function($scope, $filter, adsDataFactory) {
-    $scope.selectedFilters = {
-        townFilter: {
-            id: '!',
-            name: ''
-        },
-        categoryFilter: {
-            id: '!',
-            name: ''
-        }
+
+    $scope.getAdsData = {
+        categoryFilter: '',
+        townFilter: '',
+        pageSize: 2,
+        startPage: 1
     };
 
-    var ads;
-    adsDataFactory.get().$promise
-        .then(function(data) {
-            ads = data.ads;
-            $scope.filtrateData = ads;
-            $scope.pageInfo = {
-                bigCurrentPage: 1,
-                bigTotalItems: $scope.filtrateData.length,
-                adsPerPage: 2
-            };
-        });
+    $scope.pagingData = {
+        currentPage: 1,
+        numPages: '',
+    };
 
-    $scope.$watch('selectedFilters.townFilter.id + " " + selectedFilters.categoryFilter.id',
+    $scope.$watch('getAdsData.townFilter+getAdsData.categoryFilter+getAdsData.pageSize',
+        function() {
+            getAds($scope.getAdsData);
+        }
+    );
+
+    $scope.$watch('pagingData.currentPage',
         function(newValue) {
-            if (ads) {
-                var categoryFilter,
-                    townFilter;
-                var filters = newValue.split(' ');
-
-                if (filters[0] === '!') {
-                    townFilter = filters[0];
-                } else {
-                    townFilter = parseInt(filters[0]);
-                }
-
-                if (filters[1] === '!') {
-                    categoryFilter = filters[1];
-                } else {
-                    categoryFilter = parseInt(filters[1]);
-                }
-
-                $scope.filtrateData = $filter('filter')(ads, {
-                    categoryId: categoryFilter,
-                    townId: townFilter
-                }, true);
-            }
+            var currPageData = $scope.getAdsData;
+            currPageData.startPage = newValue;
+            getAds(currPageData);
         }
     );
 
-    $scope.$watch('filtrateData',
-        function(newValue, oldValue) {
-            if (newValue) {
-                $scope.pageInfo.bigTotalItems = newValue.length;
-            }
-        }
-    );
+    function getAds(getData) {
+        adsDataFactory.get(getData).$promise
+            .then(function(data) {
+                $scope.ads = data.ads;
+                $scope.pagingData.numPages = data.numPages;
+            });
+    }
 
-    $scope.$watch('pageInfo.bigCurrentPage + filtrateData', function() {
-        if ($scope.filtrateData) {
-            var begin = (($scope.pageInfo.bigCurrentPage - 1) * $scope.pageInfo.adsPerPage),
-                end = begin + $scope.pageInfo.adsPerPage;
-            $scope.filtrateAds = $scope.filtrateData.slice(begin, end);
-        }
-    });
 });
