@@ -2,12 +2,11 @@
 
 var startView = angular.module('app.startView', ['ngRoute']);
 
-startView.config(['$routeProvider', '$locationProvider',
-    function($routeProvider, $locationProvider) {
+startView.config(['$routeProvider',
+    function($routeProvider) {
         $routeProvider.when('/', {
             templateUrl: './views/startView/startView.html',
             controller: 'MainCtr'
         });
-        $locationProvider.html5Mode(true);
     }
 ]);

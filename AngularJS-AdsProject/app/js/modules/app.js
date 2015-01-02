@@ -1,18 +1,18 @@
 'use strict';
 
-angular.module('app', [
+var app = angular.module('app', [
         'ngRoute',
         'ngResource',
         'ui.bootstrap',
         'app.startView',
-        'app.login'
+        'app.login',
+        'app.register'
     ])
-    .config(['$routeProvider', '$locationProvider',
-        function($routeProvider, $locationProvider) {
+    .config(['$routeProvider',
+        function($routeProvider) {
             $routeProvider.otherwise({
                 redirectTo: '/'
             });
-            $locationProvider.html5Mode(true);
         }
     ])
     .constant('BASE_URL', 'http://localhost:1337/api/');

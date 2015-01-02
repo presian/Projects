@@ -10,11 +10,22 @@
     <link rel="stylesheet" href="./css/Bootstrap/bootstrap.css">
     <link rel="stylesheet" href="./css/Bootstrap/bootstrap-theme.css">
     <link rel="stylesheet" href="./css/app.css">
-    <base href="/_GITHUB_/Projects/AngularJS-AdsProject/app/">
+    <!-- <base href="/_GITHUB_/Projects/AngularJS-AdsProject/app/">
+ -->
 </head>
 
-<body>
+<body ng-controller="appCtr">
     <div ng-view></div>
+
+    <footer>
+        <div class="row">
+            <div class="container-fluid">
+                <div class="panel">
+                    <h4 class="text-center">© 2015 by Presian Danailov, No Rights Reserved</h4>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <script src="./lib/jQuery/jquery-2.1.1.min.js"></script>
     <script src="./lib/Bootstrap/bootstrap.js"></script>
@@ -22,15 +33,18 @@
     <script src="./lib/AngularUI/ui-bootstrap-tpls-0.12.0.js"></script>
     <script src="./lib/Angular/angular-route.js"></script>
     <script src="./lib/Angular/angular-resource.js"></script>
-    <script src="./app.js"></script>
+    <script src="./js/modules/app.js"></script>
+    <script src="./js/controllers/appCtr.js"></script>
+    <script src="./js/services/categoryData.js"></script>
+    <script src="./js/services/townsData.js"></script>
     <script src="./views/startView/startView.js"></script>
     <script src="./views/startView/js/controllers/mainCtr.js"></script>
     <script src="./views/startView/js/controllers/rightCtr.js"></script>
-    <script src="./views/startView/js/factories/adsDataFactory.js"></script>
-    <script src="./views/startView/js/factories/categoryDataFactory.js"></script>
-    <script src="./views/startView/js/factories/townDataFactory.js"></script>
-    <script src="./views/login/loginView.js"></script>
-    <script src="./views/login/js/controllers/loginCtr.js"></script>
+    <script src="./views/startView/js/services/adsDataFactory.js"></script>
+    <script src="./views/loginUserView/loginView.js"></script>
+    <script src="./views/loginUserView/js/controllers/loginCtr.js"></script>
+    <script src="./views/regUserView/regUserView.js"></script>
+    <script src="./views/regUserView/js/controllers/regCtr.js"></script>
 </body>
 
 </html>
