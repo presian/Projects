@@ -2,13 +2,44 @@
     <div class="panel-heading text-center">Navigation</div>
     <div class="panel-body">
         <ul class="list-group">
-            <li class="list-group-item"><a href="#/user/home">Home</a>
+            <li class="list-group-item">
+                <a href="#/user/home">Home</a>
             </li>
-            <li class="list-group-item"><a href="#/user/ads">My Ads</a>
+            <li class="list-group-item">
+                <a href="#/user/ads">My Ads</a>
             </li>
-            <li class="list-group-item"><a href="#/user/ads/publish">Publish New Ad</a>
+            <li class="list-group-item">
+                <a href="#/user/ads/publish">Publish New Ad</a>
             </li>
-            <li class="list-group-item"><a href="#/user/ads/edit/:id">Edit Profile</a>
+            <li class="list-group-item">
+                <a href="#/user/ads/edit/:id">Edit Profile</a>
             </li>
+        </ul>
+    </div>
+</div>
+<div ng-switch on="pageName()">
+    <div ng-switch-when="/user/ads">
+        <div class="panel panel-default">
+            <div class="panel-heading text-center">My Ads</div>
+            <div class="panel-body">
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <a href="" ng-click="statusFilter.status=''">All</a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="" ng-click="statusFilter.status=2">Published</a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="" ng-click="statusFilter.status=1">For Approval</a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="" ng-click="statusFilter.status=0">Inactive</a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="" ng-click="statusFilter.status=3">Rejected</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
 </div>

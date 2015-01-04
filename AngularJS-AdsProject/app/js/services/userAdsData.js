@@ -13,6 +13,28 @@ app.factory('userAdsData', function($resource, $http, BASE_URL) {
             }
         });
 
+
+    function getFilteredAds(statusFilter, startPage) {
+        var res = $resource(
+            BASE_URL + 'user/ads?Status=' + statusFilter.status + '&StartPage=' + startPage + '&PageSize=3');
+        return res.get();
+    }
+
+    function deactivateOrPublisAd(adId, type) {
+        var res = $resource(
+            BASE_URL + 'user/ads/' + type + '/:id', {
+                id: '@id'
+            }, {
+                update: {
+                    method: 'PUT'
+                }
+            });
+
+        return res.update({
+            id: adId
+        });
+    }
+
     function getAllAds() {
         return resource.get();
     }
@@ -40,6 +62,8 @@ app.factory('userAdsData', function($resource, $http, BASE_URL) {
     }
 
     return {
+        deactivateOrPublisAd: deactivateOrPublisAd,
+        getFilteredAds: getFilteredAds,
         getAll: getAllAds,
         create: createNewAd,
         getById: getAdById,

@@ -28,6 +28,14 @@ var app = angular.module('app', [
                     templateUrl: './views/userNewAdView/userNewAdView.html',
                     controller: 'PublishAdCtrl'
                 })
+                .when('/user/ads', {
+                    templateUrl: './views/userAdsView/userAdsView.html',
+                    controller: 'UserAdsCtrl'
+                })
+                .when('/user/ads/edit/:id', {
+                    templateUrl: './views/userEditAdView/userEditAdView.html',
+                    controller: 'UserEditAdCtrl'
+                })
                 .otherwise({
                     redirectTo: '/'
                 });
