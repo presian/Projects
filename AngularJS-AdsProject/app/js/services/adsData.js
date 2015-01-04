@@ -1,6 +1,6 @@
 'use strict';
 
-startView.factory('adsDataFactory', function($resource, BASE_URL) {
+app.factory('allAdsData', function($resource, BASE_URL) {
 
     function getAllAds(getAdsData) {
         var url = BASE_URL + 'ads?CategoryId=' + getAdsData.categoryFilter +

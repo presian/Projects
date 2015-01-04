@@ -1,6 +1,6 @@
 'use strict';
 
-loginView.controller('LoginCtr', function($scope, $resource, BASE_URL) {
+app.controller('LoginCtrl', function($scope, $resource, $location, BASE_URL) {
     $scope.login = {
         username: '',
         password: ''
@@ -13,11 +13,15 @@ loginView.controller('LoginCtr', function($scope, $resource, BASE_URL) {
                 function(data) {
                     sessionStorage.setItem('token', data.access_token);
                     sessionStorage.setItem('username', data.username);
+                    // if (data.isAdmin) {
+                    //     $location.path('admin/home');
+                    // } else {
+                    $location.path('user/home');
+                    // }
                 },
                 function(error) {
-                    console.log(error);
+                    console.log(error.data.error_description);
                 }
             );
-        // window.location = '/';
     };
 });

@@ -2,12 +2,40 @@ h2 {
     margin-top: 10px;
 }
 img {
-    width: 230px;
-    max-height: 400px;
+    max-width: 230px;
+    max-height: 200px;
 }
 button {
     width: 150px;
 }
 .form-icons {
     width: 38px;
+}
+.v-center {
+    display: table !important;
+    height: 100%;
+}
+.content {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
 }

@@ -12,10 +12,62 @@
     <link rel="stylesheet" href="./css/app.css">
     <!-- <base href="/_GITHUB_/Projects/AngularJS-AdsProject/app/">
  -->
+    <script src="./lib/Angular/angular.js"></script>
 </head>
 
-<body ng-controller="appCtr">
-    <div ng-view></div>
+<body ng-controller="AppCtrl">
+    <header class="row">
+        <div class="navbar navbar-default">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 col-md-offset-4" ng-switch on="pageName()">
+                        <h2 class="text-center" ng-switch-when="/">Ads - Home</h2>
+                        <h2 class="text-center" ng-switch-when="/register">Ads - Registration</h2>
+                        <h2 class="text-center" ng-switch-when="/login">Ads - Login</h2>
+                        <h2 class="text-center" ng-switch-when="/user/home">Ads - Home</h2>
+                        <h2 class="text-center" ng-switch-when="/user/ads/publish">Ads - Publish New Ad
+</h2>
+                    </div>
+                    <div class="col-md-4" ng-show="username">
+                        <div class="row" style="height: 53px">
+                            <div class="col-md-3 v-center col-md-offset-6">
+                                <div class="content"><span class="badge"><strong>{{username}}</strong></span>
+                                </div>
+                            </div>
+                            <div class="col-md-3 v-center">
+                                <div class="content">
+                                    <a href="">Logout</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 col-lg-push-2" ng-view>
+            </div>
+            <aside class="col-lg-2 col-lg-pull-10" ng-switch on="pageName()">
+                <div ng-switch-when="/">
+                    <div ng-include="'./partials/public/left.html'"></div>
+                </div>
+                <div ng-switch-when="/login">
+                    <div ng-include="'./partials/public/left.html'"></div>
+                </div>
+                <div ng-switch-when="/register">
+                    <div ng-include="'./partials/public/left.html'"></div>
+                </div>
+                <div ng-switch-when="/user/home">
+                    <div ng-include="'./partials/user/left.html'"></div>
+                </div>
+                <div ng-switch-when="/user/ads/publish">
+                    <div ng-include="'./partials/user/left.html'"></div>
+                </div>
+            </aside>
+        </div>
+    </div>
 
     <footer>
         <div class="row">
@@ -29,22 +81,22 @@
 
     <script src="./lib/jQuery/jquery-2.1.1.min.js"></script>
     <script src="./lib/Bootstrap/bootstrap.js"></script>
-    <script src="./lib/Angular/angular.js"></script>
     <script src="./lib/AngularUI/ui-bootstrap-tpls-0.12.0.js"></script>
     <script src="./lib/Angular/angular-route.js"></script>
     <script src="./lib/Angular/angular-resource.js"></script>
+    <script src="./lib/Angular-Input-Match/angular-input-match.js"></script>
     <script src="./js/modules/app.js"></script>
-    <script src="./js/controllers/appCtr.js"></script>
+    <script src="./js/controllers/appCtrl.js"></script>
+    <script src="./js/controllers/public/mainViewCtrl.js"></script>
+    <script src="./js/controllers/public/adsCtrl.js"></script>
+    <script src="./js/controllers/public/rightCtrl.js"></script>
+    <script src="./js/controllers/public/regCtrl.js"></script>
+    <script src="./js/controllers/public/loginCtrl.js"></script>
+    <script src="./js/controllers/user/publishAdCtrl.js"></script>
     <script src="./js/services/categoryData.js"></script>
     <script src="./js/services/townsData.js"></script>
-    <script src="./views/startView/startView.js"></script>
-    <script src="./views/startView/js/controllers/mainCtr.js"></script>
-    <script src="./views/startView/js/controllers/rightCtr.js"></script>
-    <script src="./views/startView/js/services/adsDataFactory.js"></script>
-    <script src="./views/loginUserView/loginView.js"></script>
-    <script src="./views/loginUserView/js/controllers/loginCtr.js"></script>
-    <script src="./views/regUserView/regUserView.js"></script>
-    <script src="./views/regUserView/js/controllers/regCtr.js"></script>
+    <script src="./js/services/adsData.js"></script>
+    <script src="./js/services/userAdsData.js"></script>
 </body>
 
 </html>
