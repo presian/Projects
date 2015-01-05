@@ -1,7 +1,7 @@
 'use strict';
 
-app.factory('userAdsData', function($resource, $http, BASE_URL) {
-    var token = sessionStorage.getItem('token');
+app.factory('userAdsData', function($resource, $cookieStore, $http, BASE_URL) {
+    var token = $cookieStore.get('token');
     $http.defaults.headers.common.Authorization = 'Bearer ' + token;
 
     var resource = $resource(

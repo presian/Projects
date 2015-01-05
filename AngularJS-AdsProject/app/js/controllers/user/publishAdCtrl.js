@@ -1,6 +1,7 @@
 'use strict';
 
-app.controller('PublishAdCtrl', function($scope, $location, categoryData, townsData, userAdsData) {
+app.controller('PublishAdCtrl', function($scope, $location, categoryData, townsData, userAdsData, authChecker) {
+    authChecker.checkUser();
     $scope.adData = {
         title: '',
         text: '',

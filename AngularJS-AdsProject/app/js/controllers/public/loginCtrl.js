@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('LoginCtrl', function($scope, $resource, $location, BASE_URL) {
+app.controller('LoginCtrl', function($scope, $resource, $location, $cookieStore, BASE_URL) {
     $scope.login = {
         username: '',
         password: ''
@@ -11,12 +11,14 @@ app.controller('LoginCtrl', function($scope, $resource, $location, BASE_URL) {
         resource.save($scope.login).$promise
             .then(
                 function(data) {
-                    sessionStorage.setItem('token', data.access_token);
-                    sessionStorage.setItem('username', data.username);
+                    $cookieStore.put('token', data.access_token);
+                    $cookieStore.put('username', data.username);
+                    $scope.$parent.userData.username = data.username;
                     // if (data.isAdmin) {
                     //     $location.path('admin/home');
                     // } else {
                     $location.path('user/home');
+
                     // }
                 },
                 function(error) {

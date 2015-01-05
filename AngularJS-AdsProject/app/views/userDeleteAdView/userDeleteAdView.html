@@ -1,7 +1,7 @@
-<div class="col-lg-12" ng-controller="UserEditAdCtrl">
+<div class="col-lg-12" ng-controller="UserDeleteAdCtrl">
     <div class="panel panel-default">
         <div class="panel-heading text-center">
-            <h3 class="margin-0">Edit Ad</h3>
+            <h3 class="margin-0">Delete Ad</h3>
         </div>
         <div class="panel-body margin-bottom-0">
             <form class="form-horizontal well bs-component margin-bottom-0" name="editAd">
@@ -13,7 +13,7 @@
                                 <div class="col-xs-10">
                                     <div class="row">
                                         <div class="col-xs-12">
-                                            <input type="text" class="form-control" ng-model="ad.title" name="title">
+                                            <input type="text" class="form-control" ng-model="ad.title" name="title" disabled="disabled">
                                         </div>
                                     </div>
                                 </div>
@@ -23,14 +23,14 @@
                                 <div class="col-xs-10">
                                     <div class="row">
                                         <div class="col-xs-12">
-                                            <textarea class="form-control" rows="7" ng-model="ad.text" name="text"></textarea>
+                                            <textarea class="form-control" rows="7" ng-model="ad.text" name="text" disabled="disabled"></textarea>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="col-xs-4">
-                            <div class="text-center" id="ad-image">
+                            <div class="text-center">
                                 <img ng-src="{{ad.imageDataUrl}}">
                             </div>
                         </div>
@@ -40,17 +40,14 @@
                                 <div class="col-xs-10">
                                     <div class="row">
                                         <div class="col-xs-12">
-                                            <select class="form-control" name="category" ng-model="ad.categoryId">
-                                                <option value="null">None</option>
-                                                <option value="{{category.id}} " ng-repeat="category in categories">{{category.name}}</option>
-                                            </select>
+                                            <input type="text" class="form-control" ng-model="ad.categoryName" name="category" disabled="disabled">
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xs-4" id="imageName">
-
+                        <div class="col-xs-4">
+                            <a href="#/user/ads" class="btn btn-default col-xs-12">Cancel</a>
                         </div>
                     </div>
                     <div class="row">
@@ -60,29 +57,14 @@
                                 <div class="col-xs-10">
                                     <div class="row">
                                         <div class="col-xs-12">
-                                            <select class="form-control" name="town" ng-model="ad.townId">
-                                                <option value="null">None</option>
-                                                <option value="{{town.id}}" ng-repeat="town in towns">{{town.name}}</option>
-                                            </select>
+                                            <input type="text" class="form-control" ng-model="ad.townName" name="town" disabled="disabled">
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="col-xs-4">
-                            <span class="btn btn-default btn-file col-xs-12">
-    						Change Image <input type="file" onchange="angular.element(this).scope().fileSelected(this)"></span>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-4">
-                            <a href="" class="btn btn-danger col-xs-12" ng-click="editCurrentAd()">Edit</a>
-                        </div>
-                        <div class="col-xs-4">
-                            <a href="#/user/ads" class="btn btn-default col-xs-12">Cancel</a>
-                        </div>
-                        <div class="col-xs-4">
-                            <a href="" class="btn btn-default col-xs-12" ng-click="deleteImage()">Delete Image</a>
+                            <a href="" class="btn btn-danger col-xs-12" ng-click="deleteAd()">Delete Ad</a>
                         </div>
                     </div>
                 </fieldset>

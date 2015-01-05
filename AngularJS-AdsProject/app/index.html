@@ -28,16 +28,18 @@
                         <h2 class="text-center" ng-switch-when="/user/ads/publish">Ads - Publish New Ad</h2>
                         <h2 class="text-center" ng-switch-when="/user/ads">Ads – My Ads</h2>
                         <h2 class="text-center" ng-switch-when="edit">Ads – Edit Ad</h2>
+                        <h2 class="text-center" ng-switch-when="delete">Ads – Delete Ad</h2>
+                        <h2 class="text-center" ng-switch-when="/user/profile">Ads – Edit User Profile</h2>
                     </div>
-                    <div class="col-md-4" ng-show="username">
+                    <div class="col-md-4" ng-show="userData.username">
                         <div class="row" style="height: 53px">
                             <div class="col-md-3 v-center col-md-offset-6">
-                                <div class="content"><span class="badge"><strong>{{username}}</strong></span>
+                                <div class="content"><span class="badge"><strong>{{userData.username}}</strong></span>
                                 </div>
                             </div>
                             <div class="col-md-3 v-center">
                                 <div class="content">
-                                    <a href="">Logout</a>
+                                    <a href="" ng-click="logout()">Logout</a>
                                 </div>
                             </div>
                         </div>
@@ -72,6 +74,12 @@
                 <div ng-switch-when="edit">
                     <div ng-include="'./partials/user/left.html'"></div>
                 </div>
+                <div ng-switch-when="delete">
+                    <div ng-include="'./partials/user/left.html'"></div>
+                </div>
+                <div ng-switch-when="/user/profile">
+                    <div ng-include="'./partials/user/left.html'"></div>
+                </div>
             </aside>
         </div>
     </div>
@@ -91,6 +99,7 @@
     <script src="./lib/AngularUI/ui-bootstrap-tpls-0.12.0.js"></script>
     <script src="./lib/Angular/angular-route.js"></script>
     <script src="./lib/Angular/angular-resource.js"></script>
+    <script src="./lib/Angular/angular-cookies.js"></script>
     <script src="./lib/Angular-Input-Match/angular-input-match.js"></script>
     <script src="./js/modules/app.js"></script>
     <script src="./js/controllers/appCtrl.js"></script>
@@ -102,10 +111,14 @@
     <script src="./js/controllers/user/publishAdCtrl.js"></script>
     <script src="./js/controllers/user/userAdsCtrl.js"></script>
     <script src="./js/controllers/user/userEditAdCtrl.js"></script>
+    <script src="./js/controllers/user/userDeleteAdCtrl.js"></script>
+    <script src="./js/controllers/user/userEditProfileCtrl.js"></script>
     <script src="./js/services/categoryData.js"></script>
     <script src="./js/services/townsData.js"></script>
     <script src="./js/services/adsData.js"></script>
     <script src="./js/services/userAdsData.js"></script>
+    <script src="./js/services/userProfileData.js"></script>
+    <script src="./js/services/authChecker.js"></script>
 </body>
 
 </html>

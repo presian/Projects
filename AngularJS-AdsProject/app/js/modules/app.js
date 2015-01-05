@@ -4,7 +4,8 @@ var app = angular.module('app', [
         'ngRoute',
         'ngResource',
         'ui.bootstrap',
-        'validation.match'
+        'validation.match',
+        'ngCookies'
     ])
     .config(['$routeProvider',
         function($routeProvider) {
@@ -35,6 +36,14 @@ var app = angular.module('app', [
                 .when('/user/ads/edit/:id', {
                     templateUrl: './views/userEditAdView/userEditAdView.html',
                     controller: 'UserEditAdCtrl'
+                })
+                .when('/user/ads/delete/:id', {
+                    templateUrl: './views/userDeleteAdView/userDeleteAdView.html',
+                    controller: 'UserDeleteAdCtrl'
+                })
+                .when('/user/profile', {
+                    templateUrl: './views/userEditProfileView/userEditProfileView.html',
+                    controller: 'UserEditProfileCtrl'
                 })
                 .otherwise({
                     redirectTo: '/'
