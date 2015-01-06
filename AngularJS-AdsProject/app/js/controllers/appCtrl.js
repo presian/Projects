@@ -1,5 +1,5 @@
 'use strict';
-app.controller('AppCtrl', function($scope, $location, $cookieStore) {
+app.controller('AppCtrl', function($scope, $location, $cookieStore, noty) {
 
     $scope.pageName = function() {
         var path = $location.path();
@@ -19,6 +19,7 @@ app.controller('AppCtrl', function($scope, $location, $cookieStore) {
         $cookieStore.remove('username');
         $scope.userData.username = '';
         $location.path('/');
+        noty.yes('Logout successfuly!');
     };
 
     $scope.userData = {

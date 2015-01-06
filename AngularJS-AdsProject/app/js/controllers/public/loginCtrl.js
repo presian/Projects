@@ -1,6 +1,11 @@
 'use strict';
 
-app.controller('LoginCtrl', function($scope, $resource, $location, $cookieStore, BASE_URL) {
+app.controller('LoginCtrl', function($scope, $resource, $location, $cookieStore, noty, BASE_URL) {
+
+    if ($cookieStore.get('username')) {
+        $location.path('/user/home');
+    }
+
     $scope.login = {
         username: '',
         password: ''
@@ -18,11 +23,11 @@ app.controller('LoginCtrl', function($scope, $resource, $location, $cookieStore,
                     //     $location.path('admin/home');
                     // } else {
                     $location.path('user/home');
-
+                    noty.yes('Login successfuly');
                     // }
                 },
                 function(error) {
-                    console.log(error.data.error_description);
+                    noty.no(error.data.error_description || 'Houston we have a problem!');
                 }
             );
     };

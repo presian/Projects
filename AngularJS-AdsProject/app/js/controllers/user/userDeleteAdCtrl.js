@@ -1,15 +1,15 @@
 'use strict';
 
-app.controller('UserDeleteAdCtrl', function($scope, $location, $routeParams, userAdsData, authChecker) {
+app.controller('UserDeleteAdCtrl', function($scope, $location, $routeParams, userAdsData, authChecker, noty) {
     authChecker.checkUser();
     $scope.ad = userAdsData.getById($routeParams.id);
     $scope.deleteAd = function() {
         userAdsData.delete($routeParams.id).$promise
             .then(function(data) {
-                //TODO: succesMessage
+                noty.yes(data.message);
                 $location.path('/user/ads');
             }, function(error) {
-                //TODO: errorMessage
+                noty.no('Houston we have a problem!');
             });
     };
 });

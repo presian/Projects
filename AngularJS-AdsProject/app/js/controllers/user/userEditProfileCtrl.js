@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('UserEditProfileCtrl', function($scope, $location, userProfileData, townsData, authChecker) {
+app.controller('UserEditProfileCtrl', function($scope, $location, userProfileData, townsData, authChecker, noty) {
     authChecker.checkUser();
     $scope.passwordData = {
         oldPassword: '',
@@ -29,20 +29,20 @@ app.controller('UserEditProfileCtrl', function($scope, $location, userProfileDat
 
         userProfileData.update($scope.user, 'profile').$promise
             .then(function(data) {
-                //TODO: succesMessage
+                noty.yes(data.message);
                 $location.path('/user/ads');
             }, function(error) {
-                //TODO: errorMesage
+                noty.no('Houston we have a problem!');
             });
     };
 
     $scope.changePass = function() {
         userProfileData.update($scope.passwordData, 'changePassword').$promise
             .then(function(data) {
-                //TODO: successMesage
+                noty.yes(data.message);
                 $location.path('/user/ads');
             }, function(error) {
-                //TODO: errorMesage
+                noty.no('Houston we have a problem!');
             });
     };
 });

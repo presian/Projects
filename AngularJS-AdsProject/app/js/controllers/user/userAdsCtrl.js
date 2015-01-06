@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('UserAdsCtrl', function($scope, $route, userAdsData, authChecker) {
+app.controller('UserAdsCtrl', function($scope, $route, userAdsData, authChecker, noty) {
     authChecker.checkUser();
     $scope.pagingData = {
         numPages: 0,
@@ -33,10 +33,10 @@ app.controller('UserAdsCtrl', function($scope, $route, userAdsData, authChecker)
         var type = 'deactivate';
         userAdsData.deactivateOrPublisAd(adId, type).$promise
             .then(function(data) {
-                //TODO: Succes mesage;
+                noty.yes(data.message);
                 $route.reload();
             }, function(error) {
-                //TODO: Error mesage;
+                noty.no('Houston we have a problem!');
             });
     }
 
@@ -45,10 +45,10 @@ app.controller('UserAdsCtrl', function($scope, $route, userAdsData, authChecker)
         var type = 'publishagain';
         userAdsData.deactivateOrPublisAd(adId, type).$promise
             .then(function(data) {
-                //TODO: Succes mesage;
+                noty.yes(data.message);
                 $route.reload();
             }, function(error) {
-                //TODO: Error mesage;
+                noty.no('Houston we have a problem!');
             });
     }
 

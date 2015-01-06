@@ -1,59 +1,65 @@
 <main ng-controller="LoginCtrl">
     <div class="col-lg-8 col-lg-offset-1">
-        <form class="form-horizontal well bs-component" name="loginForm">
-            <fieldset>
-                <legend class="text-center">Login</legend>
-                <div class="form-group">
-                    <label for="inputName" class="col-xs-2 control-label">Name</label>
-                    <div class="col-xs-10">
-                        <div class="row">
+        <div class="panel panel-default">
+            <div class="panel-heading text-center">
+                <h3 class="margin-0">Login</h3>
+            </div>
+            <div class="panel-body margin-bottom-0">
+                <form class="form-horizontal well bs-component margin-bottom-0" name="loginForm">
+                    <fieldset>
+                        <div class="form-group">
+                            <label for="inputName" class="col-xs-2 control-label">Name</label>
                             <div class="col-xs-10">
-                                <input type="text" class="form-control" ng-model="login.username" name="inputName" placeholder="Name" required ng-pattern="/[\w\d_\-@#$&?!]{5,}/">
-                            </div>
-                            <div class="col-xs-2">
-                                <img class="form-icons" src="./images/X.png" alt="X" ng-show="loginForm.inputName.$error.required || loginForm.inputName.$error.pattern">
-                                <img class="form-icons" src="./images/check.png" alt="checked" ng-show="!loginForm.inputName.$error.required && !loginForm.inputName.$error.pattern">
+                                <div class="row">
+                                    <div class="col-xs-10">
+                                        <input type="text" class="form-control" ng-model="login.username" name="inputName" placeholder="Name" required ng-pattern="/[\w\d_\-@#$&?!]{5,}/">
+                                    </div>
+                                    <div class="col-xs-2">
+                                        <img class="form-icons" src="./images/X.png" alt="X" ng-show="loginForm.inputName.$error.required || loginForm.inputName.$error.pattern">
+                                        <img class="form-icons" src="./images/check.png" alt="checked" ng-show="!loginForm.inputName.$error.required && !loginForm.inputName.$error.pattern">
+                                    </div>
+                                </div>
+                                <span ng-show="loginForm.inputName.$error.required">Required! Allowed symbols: A-Z, a-z, 0-9, _-@#$&?!</span>
+                                <span ng-show="loginForm.inputName.$error.pattern">Allowed symbols (at least 5): A-Z, a-z, 0-9, _-@#$&?!</span>
                             </div>
                         </div>
-                        <span ng-show="loginForm.inputName.$error.required">Required! Allowed symbols: A-Z, a-z, 0-9, _-@#$&?!</span>
-                        <span ng-show="loginForm.inputName.$error.pattern">Allowed symbols (at least 5): A-Z, a-z, 0-9, _-@#$&?!</span>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="inputPassword" class="col-xs-2 control-label">Password</label>
-                    <div class="col-xs-10">
-                        <div class="row">
+                        <div class="form-group">
+                            <label for="inputPassword" class="col-xs-2 control-label">Password</label>
                             <div class="col-xs-10">
-                                <input type="password" class="form-control" ng-model="login.password" name="inputPassword" placeholder="Password" required ng-pattern="/[\w\d_\-@#$&?!]{5,}/">
-                            </div>
-                            <div class="col-xs-2">
-                                <img class="form-icons" src="./images/X.png" alt="X" ng-show="loginForm.inputPassword.$error.required || loginForm.inputPassword.$error.pattern">
-                                <img class="form-icons" src="./images/check.png" alt="checked" ng-show="!loginForm.inputPassword.$error.required && !loginForm.inputPassword.$error.pattern">
+                                <div class="row">
+                                    <div class="col-xs-10">
+                                        <input type="password" class="form-control" ng-model="login.password" name="inputPassword" placeholder="Password" required ng-pattern="/[\w\d_\-@#$&?!]{5,}/">
+                                    </div>
+                                    <div class="col-xs-2">
+                                        <img class="form-icons" src="./images/X.png" alt="X" ng-show="loginForm.inputPassword.$error.required || loginForm.inputPassword.$error.pattern">
+                                        <img class="form-icons" src="./images/check.png" alt="checked" ng-show="!loginForm.inputPassword.$error.required && !loginForm.inputPassword.$error.pattern">
+                                    </div>
+                                </div>
+                                <span ng-show="loginForm.inputPassword.$error.required">Required! Allowed symbols: A-Z, a-z, 0-9, _-@#$&?!</span>
+                                <span ng-show="loginForm.inputPassword.$error.pattern">Allowed symbols (at least 5): A-Z, a-z, 0-9, _-@#$&?!</span>
                             </div>
                         </div>
-                        <span ng-show="loginForm.inputPassword.$error.required">Required! Allowed symbols: A-Z, a-z, 0-9, _-@#$&?!</span>
-                        <span ng-show="loginForm.inputPassword.$error.pattern">Allowed symbols (at least 5): A-Z, a-z, 0-9, _-@#$&?!</span>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-xs-10 col-xs-offset-2">
-                        <div class="row">
-                            <div class="col-xs-7">
-                                <div class="pull-left">
-                                    <button type="button" class="btn btn-success" ng-disabled="loginForm.$invalid" ng-click="makeLogin()">Login</button>
+                        <div class="form-group">
+                            <div class="col-xs-10 col-xs-offset-2">
+                                <div class="row">
+                                    <div class="col-xs-7">
+                                        <div class="pull-left">
+                                            <button type="button" class="btn btn-success" ng-disabled="loginForm.$invalid" ng-click="makeLogin()">Login</button>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <div class="pull-right">
+                                            <a href="#/register">
+                                                <button type="button" class="btn btn-info">Register</button>
+                                            </a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-xs-3">
-                                <div class="pull-right">
-                                    <a href="#/register">
-                                        <button type="button" class="btn btn-info">Register</button>
-                                    </a>
-                                </div>
-                            </div>
                         </div>
-                    </div>
-                </div>
-            </fieldset>
-        </form>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
     </div>
 </main>

@@ -2,8 +2,7 @@ h2 {
     margin-top: 10px;
 }
 img {
-    max-width: 230px;
-    max-height: 200px;
+    max-width: 100% !important;
 }
 button {
     width: 150px;

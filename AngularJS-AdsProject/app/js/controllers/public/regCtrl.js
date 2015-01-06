@@ -1,6 +1,11 @@
 'use strict';
 
-app.controller('RegCtrl', function($scope, $resource, $location, $cookieStore, BASE_URL, townsData) {
+app.controller('RegCtrl', function($scope, $resource, $location, $cookieStore, BASE_URL, townsData, noty) {
+
+    if ($cookieStore.get('username')) {
+        $location.path('/user/home');
+    }
+
     $scope.regData = {
         username: '',
         password: '',
@@ -29,9 +34,11 @@ app.controller('RegCtrl', function($scope, $resource, $location, $cookieStore, B
                     $cookieStore.put('username', data.username);
                     $scope.$parent.userData.username = data.username;
                     $location.path('user/home');
+                    noty.yes('Registration complete!');
                 },
                 function(error) {
-                    console.log(error.data.error_description);
+                    var errorData = error.data.modelState[Object.keys(error.data.modelState)[0]];
+                    noty.no(errorData[0] || 'Houston we have a problem!');
                 }
             );
     };

@@ -1,6 +1,10 @@
 'use strict';
 
-app.controller('AdsCtrl', function($scope, allAdsData) {
+app.controller('AdsCtrl', function($scope, allAdsData, $cookieStore, $location) {
+
+    if ($cookieStore.get('username')) {
+        $location.path('/user/home');
+    }
 
     $scope.$parent.$watch('getAdsData.townFilter+getAdsData.categoryFilter+getAdsData.pageSize',
         function() {

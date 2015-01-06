@@ -16,7 +16,11 @@
         <div class="panel-body">
             <div class="row">
                 <div class="col-lg-4">
-                    <img ng-src="{{ad.imageDataUrl || './images/no_image_available.jpg'}}" alt="adPic">
+                    <div class="well well-sm">
+                        <div class="text-center">
+                            <img ng-src="{{ad.imageDataUrl || './images/no_image_available.jpg'}}" alt="adPic">
+                        </div>
+                    </div>
                 </div>
                 <div class="col-lg-8">
                     <div class="row">

@@ -5,7 +5,8 @@ var app = angular.module('app', [
         'ngResource',
         'ui.bootstrap',
         'validation.match',
-        'ngCookies'
+        'ngCookies',
+        'ui-notification'
     ])
     .config(['$routeProvider',
         function($routeProvider) {

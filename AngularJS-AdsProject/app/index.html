@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="./css/Bootstrap/bootstrap.css">
     <link rel="stylesheet" href="./css/Bootstrap/bootstrap-theme.css">
+    <link rel="stylesheet" href="./css/angular-ui-notification/angular-ui-notification.min.css">
     <link rel="stylesheet" href="./css/app.css">
     <!-- <base href="/_GITHUB_/Projects/AngularJS-AdsProject/app/">
  -->
@@ -20,7 +21,7 @@
         <div class="navbar navbar-default">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-4 col-md-offset-4" ng-switch on="pageName()">
+                    <div class="col-xs-4 col-xs-offset-4" ng-switch on="pageName()">
                         <h2 class="text-center" ng-switch-when="/">Ads - Home</h2>
                         <h2 class="text-center" ng-switch-when="/register">Ads - Registration</h2>
                         <h2 class="text-center" ng-switch-when="/login">Ads - Login</h2>
@@ -31,16 +32,17 @@
                         <h2 class="text-center" ng-switch-when="delete">Ads – Delete Ad</h2>
                         <h2 class="text-center" ng-switch-when="/user/profile">Ads – Edit User Profile</h2>
                     </div>
-                    <div class="col-md-4" ng-show="userData.username">
-                        <div class="row" style="height: 53px">
-                            <div class="col-md-3 v-center col-md-offset-6">
-                                <div class="content"><span class="badge"><strong>{{userData.username}}</strong></span>
-                                </div>
+                    <div class="col-xs-2 v-center" ng-show="userData.username">
+                        <div class="content" style="height: 53px">
+                            <div class="pull-right">
+                                <span class="badge"><strong>{{userData.username}}</strong></span>
                             </div>
-                            <div class="col-md-3 v-center">
-                                <div class="content">
-                                    <a href="" ng-click="logout()">Logout</a>
-                                </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-2 v-center" ng-show="userData.username">
+                        <div class="content" style="height: 53px">
+                            <div class="pull-right">
+                                <a href="" ng-click="logout()">Logout</a>
                             </div>
                         </div>
                     </div>
@@ -101,6 +103,7 @@
     <script src="./lib/Angular/angular-resource.js"></script>
     <script src="./lib/Angular/angular-cookies.js"></script>
     <script src="./lib/Angular-Input-Match/angular-input-match.js"></script>
+    <script src="./lib/angular-ui-notification/angular-ui-notification.min.js"></script>
     <script src="./js/modules/app.js"></script>
     <script src="./js/controllers/appCtrl.js"></script>
     <script src="./js/controllers/public/mainViewCtrl.js"></script>
@@ -119,6 +122,7 @@
     <script src="./js/services/userAdsData.js"></script>
     <script src="./js/services/userProfileData.js"></script>
     <script src="./js/services/authChecker.js"></script>
+    <script src="./js/services/notifications.js"></script>
 </body>
 
 </html>

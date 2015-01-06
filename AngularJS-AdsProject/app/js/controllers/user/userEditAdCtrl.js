@@ -1,6 +1,7 @@
 'use strict';
 
-app.controller('UserEditAdCtrl', function($scope, $routeParams, $location, userAdsData, townsData, categoryData, authChecker) {
+app.controller('UserEditAdCtrl', function($scope, $routeParams, $location,
+    userAdsData, townsData, categoryData, authChecker, noty) {
     authChecker.checkUser();
     $scope.ad = userAdsData.getById($routeParams.id);
     $scope.towns = townsData.query();
@@ -45,9 +46,9 @@ app.controller('UserEditAdCtrl', function($scope, $routeParams, $location, userA
         userAdsData.edit($routeParams.id, $scope.ad).$promise
             .then(function(data) {
                 $location.path('/user/ads');
-                //TODO: successMesage
+                noty.yes(data.message);
             }, function(error) {
-                //TODO: errorMesage
+                noty.no('Houston we have a problem!');
             });
     }
 

@@ -49,11 +49,11 @@
                             </div>
                             <div class="row">
                                 <div class="col-xs-10">
-                                    <input type="text" class="form-control" ng-model="user.phoneNumber" name="phone" ng-pattern="/[\d\-+()]{5,}/" required>
+                                    <input type="text" class="form-control" ng-model="user.phoneNumber" name="phone" ng-pattern="/[\d\-+()]{5,}/">
 
                                 </div>
-                                <div class="col-sx-2"><img class="form-icons" src="./images/X.png" alt="X" ng-show="editProfile.phone.$error.required || editProfile.phone.$error.pattern">
-                                    <img class="form-icons" src="./images/check.png" alt="checked" ng-show="!editProfile.phone.$error.required && !editProfile.phone.$error.pattern">
+                                <div class="col-sx-2"><img class="form-icons" src="./images/X.png" alt="X" ng-show="editProfile.phone.$error.pattern">
+                                    <img class="form-icons" src="./images/check.png" alt="checked" ng-show="!editProfile.phone.$error.pattern">
                                 </div>
                             </div>
                             <div class="row">

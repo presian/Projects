@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('PublishAdCtrl', function($scope, $location, categoryData, townsData, userAdsData, authChecker) {
+app.controller('PublishAdCtrl', function($scope, $location, categoryData, townsData, userAdsData, authChecker, noty) {
     authChecker.checkUser();
     $scope.adData = {
         title: '',
@@ -32,10 +32,9 @@ app.controller('PublishAdCtrl', function($scope, $location, categoryData, townsD
 
     $scope.publishingAd = function() {
         userAdsData.create($scope.adData).$promise
-            .then(function() {
+            .then(function(data) {
+                noty.yes(data.message);
                 $location.path('user/home');
-            }, function(error) {
-                console.log(error.data.error_description);
             });
     };
 });
