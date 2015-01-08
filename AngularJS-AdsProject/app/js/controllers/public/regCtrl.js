@@ -1,10 +1,7 @@
 'use strict';
 
-app.controller('RegCtrl', function($scope, $resource, $location, $cookieStore, BASE_URL, townsData, noty) {
-
-    if ($cookieStore.get('username')) {
-        $location.path('/user/home');
-    }
+app.controller('RegCtrl', function($scope, $resource, $location, $cookieStore,
+    authChecker, BASE_URL, townsData, noty) {
 
     $scope.regData = {
         username: '',

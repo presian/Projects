@@ -1,0 +1,66 @@
+<div class="text-center" ng-include="'./partials/public/paging.html'"></div>
+<div class="panel panel-default" ng-repeat="ad in ads">
+    <div class="panel-heading">
+        <div class="row">
+            <div class="col-lg-10">
+                <h3 class="panel-title">
+                {{ad.title}}
+                </h3>
+            </div>
+            <div class="col-lg-2">
+                {{ad.date|date: 'dd.MMM.yyyy'}}
+            </div>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="well well-sm">
+                    <div class="text-center">
+                        <img ng-src="{{ad.imageDataUrl || './images/no_image_available.jpg'}}" alt="adPic">
+                    </div>
+                </div>
+                <label for="status">Status:</label>
+                <div class="well well-sm">
+                    {{ad.status}}
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="well">
+                            {{ad.text}}
+                        </div>
+                    </div>
+                </div>
+                <div class="well well-sm">
+                    <strong>Username: </strong>{{ad.ownerUsername}}
+                </div>
+                <div class="well well-sm">
+                    <strong>Name: </strong>{{ad.ownerName}}
+                </div>
+                <div class="well well-sm">
+                    <strong>Email: </strong>{{ad.ownerEmail}}
+                </div>
+                <div class="well well-sm" ng-show="ad.ownerPhone">
+                    <strong>Phone: </strong>{{ad.ownerPhone}}
+                </div>
+                <div class="well well-sm" ng-show="ad.categoryName">
+                    <strong>Category: </strong>{{ad.categoryName}}
+                </div>
+                <div class="well well-sm" ng-show="ad.ownerPhone">
+                    <strong>Town: </strong>{{ad.townName}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel-footer">
+        <div class="btn-group btn-group-justified">
+            <a href="" class="btn btn-default" ng-show="ad.status==='WaitingApproval'||ad.status==='Rejected'" ng-click="approveAd(ad.id)">Approve</a>
+            <a href="" class="btn btn-default" ng-hide="ad.status === 'Rejected'||ad.status==='Inactive'" ng-click="rejectAd(ad.id)">Reject</a>
+            <a href="#/admin/ads/edit/{{ad.id}}" class="btn btn-default">Edit</a>
+            <a href="#/admin/ads/delete/{{ad.id}}" class="btn btn-default">Delete</a>
+        </div>
+    </div>
+</div>
+<div class="text-center" ng-include="'./partials/public/paging.html'"></div>

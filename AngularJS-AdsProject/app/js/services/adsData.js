@@ -11,6 +11,6 @@ app.factory('allAdsData', function($resource, BASE_URL) {
     }
 
     return {
-        get: getAllAds,
+        get: getAllAds
     };
 });

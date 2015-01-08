@@ -1,7 +1,6 @@
 'use strict';
 
-app.controller('MainCtrl', function($scope, authChecker) {
-    authChecker.checkUser();
+app.controller('MainCtrl', function($scope) {
     $scope.getAdsData = {
         categoryFilter: '',
         townFilter: '',

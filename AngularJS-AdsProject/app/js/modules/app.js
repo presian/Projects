@@ -46,6 +46,22 @@ var app = angular.module('app', [
                     templateUrl: './views/userEditProfileView/userEditProfileView.html',
                     controller: 'UserEditProfileCtrl'
                 })
+                .when('/admin/home', {
+                    templateUrl: './views/adminHomeView/adminHomeView.html',
+                    controller: 'AdminHomeCtrl'
+                })
+                .when('/admin/ads/edit/:id', {
+                    templateUrl: './views/adminEditAdView/adminEditAdView.html',
+                    controller: 'AdminEditAdCtrl'
+                })
+                .when('/admin/ads/delete/:id', {
+                    templateUrl: './views/adminDeleteAdView/adminDeleteAdView.html',
+                    controller: 'AdminDeleteAdCtrl'
+                })
+                .when('/admin/users/list', {
+                    templateUrl: './views/adminUsersListView/adminUsersListView.html',
+                    controller: 'AdminUsersListCtrl'
+                })
                 .otherwise({
                     redirectTo: '/'
                 });

@@ -1,7 +1,9 @@
 'use strict';
 
 app.controller('UserAdsCtrl', function($scope, $route, userAdsData, authChecker, noty) {
+
     authChecker.checkUser();
+
     $scope.pagingData = {
         numPages: 0,
         currentPage: 1

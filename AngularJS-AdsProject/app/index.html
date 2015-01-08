@@ -11,8 +11,6 @@
     <link rel="stylesheet" href="./css/Bootstrap/bootstrap-theme.css">
     <link rel="stylesheet" href="./css/angular-ui-notification/angular-ui-notification.min.css">
     <link rel="stylesheet" href="./css/app.css">
-    <!-- <base href="/_GITHUB_/Projects/AngularJS-AdsProject/app/">
- -->
     <script src="./lib/Angular/angular.js"></script>
 </head>
 
@@ -31,15 +29,19 @@
                         <h2 class="text-center" ng-switch-when="edit">Ads – Edit Ad</h2>
                         <h2 class="text-center" ng-switch-when="delete">Ads – Delete Ad</h2>
                         <h2 class="text-center" ng-switch-when="/user/profile">Ads – Edit User Profile</h2>
+                        <h2 class="text-center" ng-switch-when="/admin/home">Administration – Ads</h2>
+                        <h2 class="text-center" ng-switch-when="adminEdit">Administration – Edit Ad</h2>
+                        <h2 class="text-center" ng-switch-when="adminDelete">Administration – Delete Ad</h2>
+                        <h2 class="text-center" ng-switch-when="/admin/users/list">Administration – Users</h2>
                     </div>
-                    <div class="col-xs-2 v-center" ng-show="userData.username">
+                    <div class="col-xs-2 v-center" ng-show="showUserName()">
                         <div class="content" style="height: 53px">
                             <div class="pull-right">
                                 <span class="badge"><strong>{{userData.username}}</strong></span>
                             </div>
                         </div>
                     </div>
-                    <div class="col-xs-2 v-center" ng-show="userData.username">
+                    <div class="col-xs-2 v-center" ng-show="showUserName()">
                         <div class="content" style="height: 53px">
                             <div class="pull-right">
                                 <a href="" ng-click="logout()">Logout</a>
@@ -82,10 +84,21 @@
                 <div ng-switch-when="/user/profile">
                     <div ng-include="'./partials/user/left.html'"></div>
                 </div>
+                <div ng-switch-when="/admin/home">
+                    <div ng-include="'./partials/admin/left.html'"></div>
+                </div>
+                <div ng-switch-when="adminEdit">
+                    <div ng-include="'./partials/admin/left.html'"></div>
+                </div>
+                <div ng-switch-when="adminDelete">
+                    <div ng-include="'./partials/admin/left.html'"></div>
+                </div>
+                <div ng-switch-when="/admin/users/list">
+                    <div ng-include="'./partials/admin/left.html'"></div>
+                </div>
             </aside>
         </div>
     </div>
-
     <footer>
         <div class="row">
             <div class="container-fluid">
@@ -116,6 +129,10 @@
     <script src="./js/controllers/user/userEditAdCtrl.js"></script>
     <script src="./js/controllers/user/userDeleteAdCtrl.js"></script>
     <script src="./js/controllers/user/userEditProfileCtrl.js"></script>
+    <script src="./js/controllers/admin/adminHomeCtrl.js"></script>
+    <script src="./js/controllers/admin/adminEditAdCtrl.js"></script>
+    <script src="./js/controllers/admin/adminDeleteAdCtrl.js"></script>
+    <script src="./js/controllers/admin/adminUsersListCtrl.js"></script>
     <script src="./js/services/categoryData.js"></script>
     <script src="./js/services/townsData.js"></script>
     <script src="./js/services/adsData.js"></script>
@@ -123,6 +140,9 @@
     <script src="./js/services/userProfileData.js"></script>
     <script src="./js/services/authChecker.js"></script>
     <script src="./js/services/notifications.js"></script>
+    <script src="./js/services/adminAdsData.js"></script>
+    <script src="./js/services/picPreview.js"></script>
+    <script src="./js/services/adminUsersData.js"></script>
 </body>
 
 </html>
