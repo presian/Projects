@@ -62,6 +62,46 @@ var app = angular.module('app', [
                     templateUrl: './views/adminUsersListView/adminUsersListView.html',
                     controller: 'AdminUsersListCtrl'
                 })
+                .when('/admin/users/edit/:username', {
+                    templateUrl: './views/adminEditUserView/adminEditUserView.html',
+                    controller: 'AdminEditUserCtrl'
+                })
+                .when('/admin/users/delete/:username', {
+                    templateUrl: './views/adminDeleteUserView/adminDeleteUserView.html',
+                    controller: 'AdminDeleteUserCtrl'
+                })
+                .when('/admin/categories/list', {
+                    templateUrl: './views/adminCategoriesListView/adminCategoriesListView.html',
+                    controller: 'AdminCategoriesListCtrl'
+                })
+                .when('/admin/categories/create', {
+                    templateUrl: './views/adminCreateCategoryView/adminCreateCategoryView.html',
+                    controller: 'AdminCreateCategoryCtrl'
+                })
+                .when('/admin/categories/edit/:id/:name', {
+                    templateUrl: './views/adminEditCategoryView/adminEditCategoryView.html',
+                    controller: 'AdminEditCategoryCtrl'
+                })
+                .when('/admin/categories/delete/:id/:name', {
+                    templateUrl: './views/adminDeleteCategoryView/adminDeleteCategoryView.html',
+                    controller: 'AdminDeleteCategoryCtrl'
+                })
+                .when('/admin/towns/list', {
+                    templateUrl: './views/adminTownsListView/adminTownsListView.html',
+                    controller: 'AdminTownsListCtrl'
+                })
+                .when('/admin/towns/create', {
+                    templateUrl: './views/adminCreateTownView/adminCreateTownView.html',
+                    controller: 'AdminCreateTownCtrl'
+                })
+                .when('/admin/towns/edit/:id/:name', {
+                    templateUrl: './views/adminEditTownView/adminEditTownView.html',
+                    controller: 'AdminEditTownCtrl'
+                })
+                .when('/admin/towns/delete/:id/:name', {
+                    templateUrl: './views/adminDeleteTownView/adminDeleteTownView.html',
+                    controller: 'AdminDeleteTownCtrl'
+                })
                 .otherwise({
                     redirectTo: '/'
                 });

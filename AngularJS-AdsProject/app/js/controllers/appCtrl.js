@@ -5,16 +5,28 @@ app.controller('AppCtrl', function($scope, $location, $cookieStore, noty) {
         var path = $location.path();
         var editIndex = path.lastIndexOf('/user/ads/edit/');
         var dleteIndex = path.lastIndexOf('/user/ads/delete/');
-        var editAdminIndex = path.lastIndexOf('/admin/ads/edit/');
-        var dleteAdminIndex = path.lastIndexOf('/admin/ads/delete/');
+        var editAdminAdIndex = path.lastIndexOf('/admin/ads/edit/');
+        var dleteAdminAdIndex = path.lastIndexOf('/admin/ads/delete/');
+        var editAdminUserIndex = path.lastIndexOf('/admin/users/edit/');
+        var dleteAdminUserIndex = path.lastIndexOf('/admin/users/delete/');
+        var editAdminCategoryIndex = path.lastIndexOf('/admin/categories/edit/');
+        var dleteAdminCategoryIndex = path.lastIndexOf('/admin/categories/delete/');
         if (editIndex === 0) {
             return 'edit';
         } else if (dleteIndex === 0) {
             return 'delete';
-        } else if (editAdminIndex === 0) {
-            return 'adminEdit';
-        } else if (dleteAdminIndex === 0) {
-            return 'adminDelete';
+        } else if (editAdminAdIndex === 0) {
+            return 'adminEditAd';
+        } else if (dleteAdminAdIndex === 0) {
+            return 'adminDeleteAd';
+        } else if (editAdminUserIndex === 0) {
+            return 'adminEditUser';
+        } else if (dleteAdminUserIndex === 0) {
+            return 'adminDeleteUser';
+        } else if (editAdminCategoryIndex === 0) {
+            return 'adminEditCategory';
+        } else if (dleteAdminCategoryIndex === 0) {
+            return 'adminDeleteCategory';
         } else {
             return $location.path();
         }

@@ -5,16 +5,16 @@
                 <thead>
                     <tr>
                         <th>
-                            <a href="" ng-click="getAdsData.order='UserName'">Username &#8681</a>
-                            <a href="" ng-click="getAdsData.order='-UserName'">Username &#8679</a>
+                            <a href="" ng-click="getUsersData.order='UserName'">Username &#8681</a>
+                            <a href="" ng-click="getUsersData.order='-UserName'">Username &#8679</a>
                         </th>
                         <th>
-                            <a href="" ng-click="getAdsData.order='Name'">Name &#8681</a>
-                            <a href="" ng-click="getAdsData.order='-Name'">Name &#8679</a>
+                            <a href="" ng-click="getUsersData.order='Name'">Name &#8681</a>
+                            <a href="" ng-click="getUsersData.order='-Name'">Name &#8679</a>
                         </th>
                         <th>
-                            <a href="" ng-click="getAdsData.order='Email'">Email &#8681</a>
-                            <a href="" ng-click="getAdsData.order='-Email'">Email &#8679</a>
+                            <a href="" ng-click="getUsersData.order='Email'">Email &#8681</a>
+                            <a href="" ng-click="getUsersData.order='-Email'">Email &#8679</a>
                         </th>
                         <th>Phone</th>
                         <th>Action</th>
@@ -27,12 +27,13 @@
                         <td>{{user.email}}</td>
                         <td>{{user.phoneNumber}}</td>
                         <td>
-                            <a href="">Edit </a>
-                            <a href=""> Delete</a>
+                            <a href="#/admin/users/edit/{{user.username}}" ng-click="getCurrentUser(user)">Edit</a>
+                            <a href="#/admin/users/delete/{{user.username}}" ng-click="getCurrentUser(user)">Delete</a>
                         </td>
                     </tr>
                 </tbody>
             </table>
         </div>
     </div>
+    <div class="text-center" ng-include="'./partials/public/paging.html'"></div>
 </main>

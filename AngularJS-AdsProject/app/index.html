@@ -29,10 +29,18 @@
                         <h2 class="text-center" ng-switch-when="edit">Ads – Edit Ad</h2>
                         <h2 class="text-center" ng-switch-when="delete">Ads – Delete Ad</h2>
                         <h2 class="text-center" ng-switch-when="/user/profile">Ads – Edit User Profile</h2>
-                        <h2 class="text-center" ng-switch-when="/admin/home">Administration – Ads</h2>
-                        <h2 class="text-center" ng-switch-when="adminEdit">Administration – Edit Ad</h2>
-                        <h2 class="text-center" ng-switch-when="adminDelete">Administration – Delete Ad</h2>
-                        <h2 class="text-center" ng-switch-when="/admin/users/list">Administration – Users</h2>
+                        <h2 class="text-center" ng-switch-when="/admin/home">Admin – Ads</h2>
+                        <h2 class="text-center" ng-switch-when="adminEditAd">Admin – Edit Ad</h2>
+                        <h2 class="text-center" ng-switch-when="adminDeleteAd">Admin – Delete Ad</h2>
+                        <h2 class="text-center" ng-switch-when="/admin/users/list">Admin – Users</h2>
+                        <h2 class="text-center" ng-switch-when="adminEditUser">Admin – Edit User</h2>
+                        <h2 class="text-center" ng-switch-when="adminDeleteUser">Admin – Delte User</h2>
+                        <h2 class="text-center" ng-switch-when="/admin/categories/list">Admin – Categories</h2>
+                        <h2 class="text-center" ng-switch-when="/admin/categories/create">Admin – Create category</h2>
+                        <h2 class="text-center" ng-switch-when="adminEditCategory">Admin – Edit category</h2>
+                        <h2 class="text-center" ng-switch-when="adminDeleteCategory">Admin – Delte category</h2>
+                        <h2 class="text-center" ng-switch-when="/admin/towns/list">Admin – Towns</h2>
+                        <h2 class="text-center" ng-switch-when="/admin/towns/create">Admin – Create town</h2>
                     </div>
                     <div class="col-xs-2 v-center" ng-show="showUserName()">
                         <div class="content" style="height: 53px">
@@ -96,6 +104,30 @@
                 <div ng-switch-when="/admin/users/list">
                     <div ng-include="'./partials/admin/left.html'"></div>
                 </div>
+                <div ng-switch-when="adminEditUser">
+                    <div ng-include="'./partials/admin/left.html'"></div>
+                </div>
+                <div ng-switch-when="adminDeleteUser">
+                    <div ng-include="'./partials/admin/left.html'"></div>
+                </div>
+                <div ng-switch-when="/admin/categories/list">
+                    <div ng-include="'./partials/admin/left.html'"></div>
+                </div>
+                <div ng-switch-when="/admin/categories/create">
+                    <div ng-include="'./partials/admin/left.html'"></div>
+                </div>
+                <div ng-switch-when="/admin/towns/list">
+                    <div ng-include="'./partials/admin/left.html'"></div>
+                </div>
+                <div ng-switch-when="/admin/towns/create">
+                    <div ng-include="'./partials/admin/left.html'"></div>
+                </div>
+                <div ng-switch-when="adminEditCategory">
+                    <div ng-include="'./partials/admin/left.html'"></div>
+                </div>
+                <div ng-switch-when="adminDeleteCategory">
+                    <div ng-include="'./partials/admin/left.html'"></div>
+                </div>
             </aside>
         </div>
     </div>
@@ -133,6 +165,16 @@
     <script src="./js/controllers/admin/adminEditAdCtrl.js"></script>
     <script src="./js/controllers/admin/adminDeleteAdCtrl.js"></script>
     <script src="./js/controllers/admin/adminUsersListCtrl.js"></script>
+    <script src="./js/controllers/admin/adminEditUserCtrl.js"></script>
+    <script src="./js/controllers/admin/adminDeleteUserCtrl.js"></script>
+    <script src="./js/controllers/admin/adminCategoriesListCtrl.js"></script>
+    <script src="./js/controllers/admin/adminCreateCategoryCtrl.js"></script>
+    <script src="./js/controllers/admin/adminEditCategoryCtrl.js"></script>
+    <script src="./js/controllers/admin/adminDeleteCategoryCtrl.js"></script>
+    <script src="./js/controllers/admin/adminTownsListCtrl.js"></script>
+    <script src="./js/controllers/admin/adminCreateTownCtrl.js"></script>
+    <script src="./js/controllers/admin/adminEditTownCtrl.js"></script>
+    <script src="./js/controllers/admin/adminDeleteTownCtrl.js"></script>
     <script src="./js/services/categoryData.js"></script>
     <script src="./js/services/townsData.js"></script>
     <script src="./js/services/adsData.js"></script>
@@ -143,6 +185,8 @@
     <script src="./js/services/adminAdsData.js"></script>
     <script src="./js/services/picPreview.js"></script>
     <script src="./js/services/adminUsersData.js"></script>
+    <script src="./js/services/adminCategoriesData.js"></script>
+    <script src="./js/services/adminTownsData.js"></script>
 </body>
 
 </html>

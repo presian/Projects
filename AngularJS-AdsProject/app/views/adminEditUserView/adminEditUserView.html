@@ -1,0 +1,177 @@
+<main class="col-lg-12" ng-controller="AdminEditUserCtrl">
+    <div class="col-lg-6">
+        <div class="panel panel-default">
+            <div class="panel-heading text-center">
+                <h3 class="margin-0">Edit User Profile</h3>
+            </div>
+            <div class="panel-body margin-bottom-0">
+                <form class="well bs-component margin-bottom-0" name="editProfile" role="form">
+                    <fieldset>
+                        <div class="form-group">
+                            <div class="row">
+                                <label for="username" class="col-xs-2 control-label">Username</label>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-10">
+                                    <input type="text" class="form-control" ng-model="user.username" name="username" ng-pattern="/[\w\d_\-@#$&?!]{5,}/" required>
+
+                                </div>
+                                <div class="col-sx-2"><img class="form-icons" src="./images/X.png" alt="X" ng-show="editProfile.username.$error.required || editProfile.username.$error.pattern">
+                                    <img class="form-icons" src="./images/check.png" alt="checked" ng-show="!editProfile.username.$error.required && !editProfile.username.$error.pattern">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <span ng-show="editProfile.username.$error.required" class="col-sx-12">Required! Allowed symbols: A-Z, a-z, 0-9, _-@#$&?!</span>
+                                <span ng-show="editProfile.username.$error.pattern">Allowed symbols (at least 5): A-Z, a-z, 0-9, _-@#$&?!</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <label for="name" class="col-xs-2 control-label">Name</label>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-10">
+                                    <input type="text" class="form-control" ng-model="user.name" name="name" ng-pattern="/[\w\d_\-@#$&?!]{3,}/" required>
+
+                                </div>
+                                <div class="col-sx-2"><img class="form-icons" src="./images/X.png" alt="X" ng-show="editProfile.name.$error.required || editProfile.name.$error.pattern">
+                                    <img class="form-icons" src="./images/check.png" alt="checked" ng-show="!editProfile.name.$error.required && !editProfile.name.$error.pattern">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <span ng-show="editProfile.name.$error.required" class="col-sx-12">Required! Allowed symbols: A-Z, a-z, 0-9, _-@#$&?!</span>
+                                <span ng-show="editProfile.name.$error.pattern">Allowed symbols (at least 3): A-Z, a-z, 0-9, _-@#$&?!</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <label for="email" class="col-xs-2 control-label">Email</label>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-10">
+                                    <input type="email" class="form-control" ng-model="user.email" name="email" required>
+                                </div>
+                                <div class="col-sx-2">
+                                    <img class="form-icons" src="./images/X.png" alt="X" ng-show="editProfile.email.$error.required || editProfile.email.$invalid">
+                                    <img class="form-icons" src="./images/check.png" alt="checked" ng-show="!editProfile.email.$error.required && !editProfile.email.$invalid">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <span ng-show="editProfile.email.$error.required">Required!</span>
+                                <span ng-show="editProfile.email.$invalid && !editProfile.email.$error.required">Please enter valid e-mail!</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <label for="phone" class="col-xs-2 control-label">Phone</label>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-10">
+                                    <input type="text" class="form-control" ng-model="user.phoneNumber" name="phone" ng-pattern="/[\d\-+()]{5,}/">
+
+                                </div>
+                                <div class="col-sx-2"><img class="form-icons" src="./images/X.png" alt="X" ng-show="editProfile.phone.$error.pattern">
+                                    <img class="form-icons" src="./images/check.png" alt="checked" ng-show="!editProfile.phone.$error.pattern">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <span ng-show="editProfile.phone.$error.pattern">Allowed symbols (at least 5): [0-9]-()+</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="town" class="col-xs-2 control-label">Town</label>
+                            <select class="form-control" name="town" ng-model="user.townId">
+                                <option value="null">None</option>
+                                <option value="{{town.id}}" ng-repeat="town in towns" ng-selected="user.townId===town.id">{{town.name}}</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" ng-model="user.isAdmin">Is Administrator</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-4 col-xs-offset-1">
+                                <a href="" class="btn btn-danger col-xs-12" ng-click="edit()" ng-disabled="editProfile.$invalid">Edit</a>
+                            </div>
+                            <div class="col-xs-4 col-xs-offset-2">
+                                <a href="#/admin/users/list" class="btn btn-default col-xs-12">Cancel</a>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <div class="panel panel-default">
+            <div class="panel-heading text-center">
+                <h3 class="margin-0">Change User Password</h3>
+            </div>
+            <div class="panel-body margin-bottom-0">
+                <form class="well bs-component margin-bottom-0" name="changePassword" role="form">
+                    <fieldset>
+                        <div class="form-group">
+                            <div class="row">
+                                <label for="username" class="col-xs-6 control-label">Username</label>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-10">
+                                    <input type="textd" class="form-control" ng-model="passwordData.username" name="username" disabled>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <span ng-show="changePassword.oldPass.$error.required" class="col-sx-12">Required! Allowed symbols: A-Z, a-z, 0-9, _-@#$&?!</span>
+                                <span ng-show="changePassword.oldPass.$error.pattern">Allowed symbols (at least 5): A-Z, a-z, 0-9, _-@#$&?!</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <label for="newPass" class="col-xs-6 control-label">Password</label>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-10">
+                                    <input type="password" class="form-control" ng-model="passwordData.newPassword" name="newPass" required ng-pattern="/[\w\d_\-@#$&?!]{5,}/">
+                                </div>
+                                <div class="col-sx-2">
+                                    <img class="form-icons" src="./images/X.png" alt="X" ng-show="changePassword.newPass.$error.required || changePassword.newPass.$error.pattern">
+                                    <img class="form-icons" src="./images/check.png" alt="checked" ng-show="!changePassword.newPass.$error.required && !changePassword.newPass.$error.pattern">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <span ng-show="changePassword.newPass.$error.required">Required! Allowed symbols: A-Z, a-z, 0-9, _-@#$&?!</span>
+                                <span ng-show="changePassword.newPass.$error.pattern">Allowed symbols (at least 5): A-Z, a-z, 0-9, _-@#$&?!</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <label for="confirmPass" class="col-xs-6 control-label">Confirm new password</label>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-10">
+                                    <input type="password" class="form-control" ng-model="passwordData.confirmPassword" name="confirmPass" required ng-pattern="/[\w\d_\-@#$&?!]{5,}/" data-match="passwordData.newPassword">
+                                </div>
+                                <div class="col-sx-2"><img class="form-icons" src="./images/X.png" alt="X" ng-show="changePassword.confirmPass.$error.required || changePassword.confirmPass.$error.pattern || changePassword.confirmPass.$error.match">
+                                    <img class="form-icons" src="./images/check.png" alt="checked" ng-show="!changePassword.confirmPass.$error.required && !changePassword.confirmPass.$error.pattern && !changePassword.confirmPass.$error.match">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <span ng-show="changePassword.confirmPass.$error.required">Required! Allowed symbols: A-Z, a-z, 0-9, _-@#$&?!</span>
+                                <span ng-show="changePassword.confirmPass.$error.match">This password is not same!</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-4 col-xs-offset-1">
+                                <a href="" class="btn btn-danger col-xs-12" ng-click="changePass()" ng-disabled="changePassword.$invalid">Change</a>
+                            </div>
+                            <div class="col-xs-4 col-xs-offset-2">
+                                <a href="#/admin/users/list" class="btn btn-default col-xs-12">Cancel</a>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
