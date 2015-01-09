@@ -1,25 +1,23 @@
 'use strict';
 
-app.controller('UserEditProfileCtrl', function($scope, $location, userProfileData, townsData, authChecker, noty) {
-    authChecker.checkUser();
+app.controller('UserEditProfileCtrl', function($scope, $location, userProfileDataSvc,
+    categoriesAndTownsDataSvc, authenticationSvc, noty) {
+
+    authenticationSvc.checkUser();
+    $scope.pageTitle = 'Edit User Profile';
     $scope.passwordData = {
         oldPassword: '',
         newPssword: '',
         confirmPassword: ''
     };
 
-    townsData.query().$promise
-        .then(function(data) {
-            $scope.towns = data;
-        }, function(error) {
-            //TODO: errorMesage
-        });
-    userProfileData.getProfileData().$promise
+    $scope.towns = categoriesAndTownsDataSvc.getTowns();
+
+    userProfileDataSvc.getProfileData().$promise
         .then(function(data) {
             $scope.user = data;
-            //TODO: succesMessage
         }, function(error) {
-            //TODO: errorMesage
+            noty.no('Cannot load userdata, please try again later!');
         });
 
     $scope.edit = function() {
@@ -27,22 +25,22 @@ app.controller('UserEditProfileCtrl', function($scope, $location, userProfileDat
             $scope.user.id = null;
         }
 
-        userProfileData.update($scope.user, 'profile').$promise
+        userProfileDataSvc.update($scope.user, 'profile').$promise
             .then(function(data) {
                 noty.yes(data.message);
                 $location.path('/user/ads');
             }, function(error) {
-                noty.no('Houston we have a problem!');
+                noty.no('Editing failed, please try again later!');
             });
     };
 
     $scope.changePass = function() {
-        userProfileData.update($scope.passwordData, 'changePassword').$promise
+        userProfileDataSvc.update($scope.passwordData, 'changePassword').$promise
             .then(function(data) {
                 noty.yes(data.message);
                 $location.path('/user/ads');
             }, function(error) {
-                noty.no('Houston we have a problem!');
+                noty.no('Cannot update password, please try again later!');
             });
     };
 });

@@ -1,0 +1,25 @@
+<div class="row">
+    <div class="navbar navbar-inverse">
+        <div class="container">
+            <div class="col-xs-8 col-xs-offset-2">
+                <div class="text-center">
+                    <h2>Ads Administration - {{pageTitle}}</h2>
+                </div>
+            </div>
+            <div class="col-xs-1 v-center">
+                <div class="content" style="height: 53px">
+                    <div class="pull-right">
+                        <span class="badge"><strong>{{$parent.userData.username}}</strong></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-1 v-center">
+                <div class="content" style="height: 53px">
+                    <div class="pull-right">
+                        <a href="" ng-click="$parent.logout()">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

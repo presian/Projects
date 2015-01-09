@@ -1,15 +1,19 @@
 'use strict';
 
-app.controller('UserAdsCtrl', function($scope, $route, userAdsData, authChecker, noty) {
+app.controller('UserAdsCtrl', function($scope, $route, userAdsDataSvc, authenticationSvc, noty) {
 
-    authChecker.checkUser();
-
+    authenticationSvc.checkUser();
+    $scope.pageTitle = 'My Ads';
     $scope.pagingData = {
         numPages: 0,
         currentPage: 1
     };
 
-    $scope.$parent.$watch('statusFilter.status', function() {
+    $scope.statusFilter = {
+        status: ''
+    };
+
+    $scope.$watch('statusFilter.status', function() {
         getAds();
     });
 
@@ -21,40 +25,34 @@ app.controller('UserAdsCtrl', function($scope, $route, userAdsData, authChecker,
     $scope.publishAgain = publishAgain;
 
     function getAds() {
-        userAdsData.getFilteredAds($scope.$parent.statusFilter, $scope.pagingData.currentPage).$promise
+        userAdsDataSvc.getFilteredAds($scope.statusFilter, $scope.pagingData.currentPage).$promise
             .then(function(data) {
                 $scope.userAds = data.ads;
                 $scope.pagingData.numPages = data.numPages;
             }, function(error) {
-                console.log(error.data.error_description);
+                noty.no('Loading data failed, plese try again later!');
             });
     }
 
-    function makeInactive(element, $event) {
-        var adId = getCurrentAdId($event);
+    function makeInactive(id) {
         var type = 'deactivate';
-        userAdsData.deactivateOrPublisAd(adId, type).$promise
+        userAdsDataSvc.deactivateOrPublisAd(id, type).$promise
             .then(function(data) {
                 noty.yes(data.message);
                 $route.reload();
             }, function(error) {
-                noty.no('Houston we have a problem!');
+                noty.no('Action failed, plese try again later!');
             });
     }
 
-    function publishAgain(element, $event) {
-        var adId = getCurrentAdId($event);
+    function publishAgain(id) {
         var type = 'publishagain';
-        userAdsData.deactivateOrPublisAd(adId, type).$promise
+        userAdsDataSvc.deactivateOrPublisAd(id, type).$promise
             .then(function(data) {
                 noty.yes(data.message);
                 $route.reload();
             }, function(error) {
-                noty.no('Houston we have a problem!');
+                noty.no('Action failed, plese try again later!');
             });
-    }
-
-    function getCurrentAdId($event) {
-        return $($event.target).parent('.btn-group-vertical').data('ad').id;
     }
 });

@@ -1,6 +1,8 @@
 'use strict';
 
-app.controller('AdminCategoriesListCtrl', function($scope, adminCategoriesData) {
+app.controller('AdminCategoriesListCtrl', function($scope, adminCategoriesDataSvc, authenticationSvc) {
+    authenticationSvc.checkAdmin();
+    $scope.pageTitle = 'Categories';
     $scope.getCategoriesData = {
         pageSize: 5,
         startPage: 1,
@@ -21,10 +23,8 @@ app.controller('AdminCategoriesListCtrl', function($scope, adminCategoriesData) 
         getCategories();
     });
 
-
-
     function getCategories() {
-        adminCategoriesData.getCategories($scope.getCategoriesData).$promise
+        adminCategoriesDataSvc.getCategories($scope.getCategoriesData).$promise
             .then(function(data) {
                 $scope.categories = data.categories;
                 $scope.pagingData.numPages = data.numPages;

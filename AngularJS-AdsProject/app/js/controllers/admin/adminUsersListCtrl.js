@@ -1,7 +1,9 @@
 'use strict';
 
-app.controller('AdminUsersListCtrl', function($scope, adminUsersData, $cookieStore) {
+app.controller('AdminUsersListCtrl', function($scope, adminUsersDataSvc, $cookieStore, authenticationSvc) {
 
+    authenticationSvc.checkAdmin();
+    $scope.pageTitle = 'Users';
     $scope.getUsersData = {
         pageSize: 5,
         startPage: 1,
@@ -27,7 +29,7 @@ app.controller('AdminUsersListCtrl', function($scope, adminUsersData, $cookieSto
     };
 
     function getUsers() {
-        adminUsersData.getUsers($scope.getUsersData).$promise
+        adminUsersDataSvc.getUsers($scope.getUsersData).$promise
             .then(function(data) {
                 $scope.users = data.users;
                 $scope.pagingData.numPages = data.numPages;

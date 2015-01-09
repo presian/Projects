@@ -1,17 +1,21 @@
 'use strict';
 
-app.controller('AdminCreateCategoryCtrl', function($scope, $location, adminCategoriesData, noty) {
+app.controller('AdminCreateCategoryCtrl', function($scope, $location,
+    adminCategoriesDataSvc, noty, authenticationSvc) {
+
+    authenticationSvc.checkAdmin();
+    $scope.pageTitle = 'Create category';
     $scope.category = {
         name: ''
     };
 
     $scope.createCategory = function() {
-        adminCategoriesData.createCategory($scope.category).$promise
+        adminCategoriesDataSvc.createCategory($scope.category).$promise
             .then(function(data) {
                 noty.yes(data.message);
                 $location.path('admin/categories/list');
             }, function(error) {
-                noty.no('Houston we have a problem!');
+                noty.no('Creating failed, please try again later!');
             });
     };
 });

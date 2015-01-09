@@ -1,9 +1,12 @@
 'use strict';
 
-app.controller('AdminHomeCtrl', function($scope, authChecker, adminAdsData, townsData, categoryData, noty) {
-    authChecker.checkUser();
-    $scope.towns = townsData.query();
-    $scope.categories = categoryData.query();
+app.controller('AdminHomeCtrl', function($scope, authenticationSvc,
+    adminAdsDataSvc, categoriesAndTownsDataSvc, noty, $route) {
+
+    authenticationSvc.checkAdmin();
+    $scope.pageTitle = 'Ads';
+    $scope.towns = categoriesAndTownsDataSvc.getTowns();
+    $scope.categories = categoriesAndTownsDataSvc.getCategories();
     $scope.getAdsData = {
         categoryId: '',
         townId: '',
@@ -18,7 +21,11 @@ app.controller('AdminHomeCtrl', function($scope, authChecker, adminAdsData, town
         numPages: '',
     };
 
-    $scope.$parent.$watch('statusFilter.status', function(newValue) {
+    $scope.statusFilter = {
+        status: ''
+    };
+
+    $scope.$watch('statusFilter.status', function(newValue) {
         $scope.getAdsData.status = newValue;
     });
 
@@ -33,24 +40,32 @@ app.controller('AdminHomeCtrl', function($scope, authChecker, adminAdsData, town
         });
 
     $scope.approveAd = function(id) {
-        adminAdsData.approveOrRejectAd(id, 'Approve').$promise
+        adminAdsDataSvc.approveOrRejectAd(id, 'Approve').$promise
             .then(function(data) {
                 noty.yes(data.message);
+                $route.reload();
+            }, function(error) {
+                noty.no('Action failed, please try again later!');
             });
     };
 
     $scope.rejectAd = function(id) {
-        adminAdsData.approveOrRejectAd(id, 'Reject').$promise
+        adminAdsDataSvc.approveOrRejectAd(id, 'Reject').$promise
             .then(function(data) {
                 noty.yes(data.message);
+                $route.reload();
+            }, function(error) {
+                noty.no('Action failed, please try again later!');
             });
     };
 
     function getAds() {
-        adminAdsData.getAds($scope.getAdsData).$promise
+        adminAdsDataSvc.getAds($scope.getAdsData).$promise
             .then(function(data) {
                 $scope.ads = data.ads;
                 $scope.pagingData.numPages = data.numPages;
+            }, function(error) {
+                noty.no('Cannot load data, please try again later!');
             });
     }
 });

@@ -1,17 +1,21 @@
 'use strict';
 
-app.controller('AdminEditTownCtrl', function($scope, $location, $routeParams, noty, adminTownsData) {
+app.controller('AdminEditTownCtrl', function($scope, $location, $routeParams, noty,
+    adminTownsDataSvc, authenticationSvc) {
+
+    authenticationSvc.checkAdmin();
+    $scope.pageTitle = 'Edit town';
     $scope.town = {
         name: $routeParams.name
     };
 
     $scope.editTown = function() {
-        adminTownsData.editTown($routeParams.id, $scope.town).$promise
+        adminTownsDataSvc.editTown($routeParams.id, $scope.town).$promise
             .then(function(data) {
                 noty.yes(data.message);
                 $location.path('admin/towns/list');
             }, function(error) {
-                noty.no('Houston we have a problem!');
+                noty.no('Editing failed, please try again later!');
             });
     };
 });

@@ -1,7 +1,9 @@
 'use strict';
 
-app.controller('LoginCtrl', function($scope, $resource, $location, $cookieStore, noty, authChecker, BASE_URL) {
-
+app.controller('LoginCtrl', function($scope, $resource, $location,
+    $cookieStore, noty, BASE_URL, authenticationSvc, $route) {
+    authenticationSvc.checkLogin();
+    $scope.pageTitle = 'Login';
     $scope.login = {
         username: '',
         password: ''
@@ -25,14 +27,16 @@ app.controller('LoginCtrl', function($scope, $resource, $location, $cookieStore,
 
                     $scope.$parent.userData.username = data.username;
                     if (data.isAdmin) {
+                        $route.reload();
                         $location.path('admin/home');
                     } else {
+                        $route.reload();
                         $location.path('user/home');
                     }
                     noty.yes('Login successfuly');
                 },
                 function(error) {
-                    noty.no(error.data.error_description || 'Houston we have a problem!');
+                    noty.no('Login failed, please try again later!');
                 }
             );
     };

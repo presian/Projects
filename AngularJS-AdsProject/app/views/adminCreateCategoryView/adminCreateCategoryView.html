@@ -1,33 +1,5 @@
-<main ng-controller="AdminCreateCategoryCtrl">
-    <div class="col-xs-6 col-xs-offset-3">
-        <div class="panel panel-default">
-            <div class="panel-heading text-center">
-                <h3 class="margin-0">Create Category</h3>
-            </div>
-            <div class="panel-body margin-bottom-0">
-                <form class="form-horizontal well bs-component margin-bottom-0" name="createCategoryForm">
-                    <fieldset>
-                        <div class="form-group">
-                            <label for="name" class="col-xs-2 control-label">Name</label>
-                            <div class="col-xs-10">
-                                <div class="row">
-                                    <div class="col-xs-12">
-                                        <input type="text" class="form-control" ng-model="category.name" name="name" required>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-xs-4 col-xs-offset-2">
-                                <a href="" class="btn btn-danger col-xs-12" ng-click="createCategory()" ng-disabled="createCategoryForm.$invalid">Create</a>
-                            </div>
-                            <div class="col-xs-4 col-xs-offset-2">
-                                <a href="#/admin/categories/list" class="btn btn-default col-xs-12">Cancel</a>
-                            </div>
-                        </div>
-                    </fieldset>
-                </form>
-            </div>
-        </div>
-    </div>
-</main>
+<div data-ng-controller="AdminCreateCategoryCtrl">
+    <header class="col-lg-12" data-ng-include="'./partials/admin/header.html'"></header>
+    <main class="col-lg-10 col-lg-push-2" data-ng-include="'./views/adminCreateCategoryView/main.html'"></main>
+    <aside class="col-lg-2 col-lg-pull-10" data-ng-include="'./partials/admin/left.html'"></aside>
+</div>

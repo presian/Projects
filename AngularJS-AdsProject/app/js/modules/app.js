@@ -11,24 +11,24 @@ var app = angular.module('app', [
     .config(['$routeProvider',
         function($routeProvider) {
             $routeProvider.when('/', {
-                    templateUrl: './views/startView/startView.html',
-                    controller: 'MainCtrl'
+                    templateUrl: './views/publicStartView/publicStartView.html',
+                    controller: 'PublicAdsCtrl'
                 })
                 .when('/register', {
-                    templateUrl: './views/regUserView/regUserView.html',
-                    controller: 'RegCtrl'
+                    templateUrl: './views/publicRegistrationView/publicRegistrationView.html',
+                    controller: 'RegistrationCtrl'
                 })
                 .when('/login', {
-                    templateUrl: './views/loginUserView/login.html',
+                    templateUrl: './views/publicLoginView/publicLoginView.html',
                     controller: 'LoginCtrl'
                 })
                 .when('/user/home', {
                     templateUrl: './views/userHomeView/userHomeView.html',
-                    controller: 'MainCtrl'
+                    controller: 'UserHomeCtrl'
                 })
                 .when('/user/ads/publish', {
-                    templateUrl: './views/userNewAdView/userNewAdView.html',
-                    controller: 'PublishAdCtrl'
+                    templateUrl: './views/userPublishAdView/userPublishAdView.html',
+                    controller: 'UserPublishAdCtrl'
                 })
                 .when('/user/ads', {
                     templateUrl: './views/userAdsView/userAdsView.html',

@@ -1,6 +1,9 @@
 'use strict';
 
-app.controller('AdminTownsListCtrl', function($scope, adminTownsData) {
+app.controller('AdminTownsListCtrl', function($scope, adminTownsDataSvc, authenticationSvc) {
+
+    authenticationSvc.checkAdmin();
+    $scope.pageTitle = 'Towns';
     $scope.getTownsData = {
         pageSize: 5,
         startPage: 1,
@@ -21,10 +24,8 @@ app.controller('AdminTownsListCtrl', function($scope, adminTownsData) {
         getTowns();
     });
 
-
-
     function getTowns() {
-        adminTownsData.getTowns($scope.getTownsData).$promise
+        adminTownsDataSvc.getTowns($scope.getTownsData).$promise
             .then(function(data) {
                 $scope.towns = data.towns;
                 $scope.pagingData.numPages = data.numPages;

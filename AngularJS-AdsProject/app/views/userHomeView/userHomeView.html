@@ -1,4 +1,8 @@
-<div class="row" ng-controller="MainCtrl">
-    <aside ng-include="'./partials/public/right.html'"></aside>
-    <main ng-include="'./partials/public/main.html'"></main>
+<div data-ng-controller="UserHomeCtrl">
+    <header class="col-lg-12" data-ng-include="'./partials/user/header.html'"></header>
+    <div data-ng-controller="PublicAdsCtrl">
+        <aside class="col-lg-2 col-lg-push-10" data-ng-include="'./partials/public/right.html'"></aside>
+        <main class="col-lg-8" data-ng-include="'./partials/public/main.html'"></main>
+    </div>
+    <aside class="col-lg-2 col-lg-pull-10" data-ng-include="'./partials/user/left.html'"></aside>
 </div>

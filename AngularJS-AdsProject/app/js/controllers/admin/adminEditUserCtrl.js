@@ -1,10 +1,11 @@
 'use strict';
 
 app.controller('AdminEditUserCtrl', function($scope, $routeParams, $location, $cookieStore,
-    adminUsersData, noty, authChecker, townsData) {
-    authChecker.checkUser();
+    adminUsersDataSvc, noty, authenticationSvc, categoriesAndTownsDataSvc) {
 
-    $scope.towns = townsData.query();
+    authenticationSvc.checkAdmin();
+    $scope.pageTitle = 'Edit user';
+    $scope.towns = categoriesAndTownsDataSvc.getTowns();
     $scope.user = $cookieStore.get('editedUser');
     // $scope.user = {
     //     name: user.name,
@@ -22,25 +23,24 @@ app.controller('AdminEditUserCtrl', function($scope, $routeParams, $location, $c
     };
 
     $scope.edit = function() {
-        adminUsersData.editUser($routeParams.username, $scope.user).$promise
+        adminUsersDataSvc.editUser($routeParams.username, $scope.user).$promise
             .then(function(data) {
                 noty.yes(data.message);
                 $location.path('admin/users/list');
                 $cookieStore.remove('editedUser');
             }, function(error) {
-                noty.no('Houston we have a problem!');
+                noty.no('Editing failed, please try again later!');
             });
     };
 
     $scope.changePass = function() {
-        adminUsersData.changePassword($scope.passwordData).$promise
+        adminUsersDataSvc.changePassword($scope.passwordData).$promise
             .then(function(data) {
                 noty.yes(data.message);
                 $location.path('admin/users/list');
                 $cookieStore.remove('editedUser');
             }, function(error) {
-                noty.no('Houston we have a problem!');
+                noty.no('Changing failed, please try again later!');
             });
-    }
-
+    };
 });

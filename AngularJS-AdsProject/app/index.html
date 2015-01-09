@@ -15,128 +15,16 @@
 </head>
 
 <body ng-controller="AppCtrl">
-    <header class="row">
-        <div class="navbar navbar-default">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-4 col-xs-offset-4" ng-switch on="pageName()">
-                        <h2 class="text-center" ng-switch-when="/">Ads - Home</h2>
-                        <h2 class="text-center" ng-switch-when="/register">Ads - Registration</h2>
-                        <h2 class="text-center" ng-switch-when="/login">Ads - Login</h2>
-                        <h2 class="text-center" ng-switch-when="/user/home">Ads - Home</h2>
-                        <h2 class="text-center" ng-switch-when="/user/ads/publish">Ads - Publish New Ad</h2>
-                        <h2 class="text-center" ng-switch-when="/user/ads">Ads – My Ads</h2>
-                        <h2 class="text-center" ng-switch-when="edit">Ads – Edit Ad</h2>
-                        <h2 class="text-center" ng-switch-when="delete">Ads – Delete Ad</h2>
-                        <h2 class="text-center" ng-switch-when="/user/profile">Ads – Edit User Profile</h2>
-                        <h2 class="text-center" ng-switch-when="/admin/home">Admin – Ads</h2>
-                        <h2 class="text-center" ng-switch-when="adminEditAd">Admin – Edit Ad</h2>
-                        <h2 class="text-center" ng-switch-when="adminDeleteAd">Admin – Delete Ad</h2>
-                        <h2 class="text-center" ng-switch-when="/admin/users/list">Admin – Users</h2>
-                        <h2 class="text-center" ng-switch-when="adminEditUser">Admin – Edit User</h2>
-                        <h2 class="text-center" ng-switch-when="adminDeleteUser">Admin – Delte User</h2>
-                        <h2 class="text-center" ng-switch-when="/admin/categories/list">Admin – Categories</h2>
-                        <h2 class="text-center" ng-switch-when="/admin/categories/create">Admin – Create category</h2>
-                        <h2 class="text-center" ng-switch-when="adminEditCategory">Admin – Edit category</h2>
-                        <h2 class="text-center" ng-switch-when="adminDeleteCategory">Admin – Delte category</h2>
-                        <h2 class="text-center" ng-switch-when="/admin/towns/list">Admin – Towns</h2>
-                        <h2 class="text-center" ng-switch-when="/admin/towns/create">Admin – Create town</h2>
-                    </div>
-                    <div class="col-xs-2 v-center" ng-show="showUserName()">
-                        <div class="content" style="height: 53px">
-                            <div class="pull-right">
-                                <span class="badge"><strong>{{userData.username}}</strong></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xs-2 v-center" ng-show="showUserName()">
-                        <div class="content" style="height: 53px">
-                            <div class="pull-right">
-                                <a href="" ng-click="logout()">Logout</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
-            <div class="col-lg-10 col-lg-push-2" ng-view>
+            <div class="col-sx-12" data-ng-view>
             </div>
-            <aside class="col-lg-2 col-lg-pull-10" ng-switch on="pageName()">
-                <div ng-switch-when="/">
-                    <div ng-include="'./partials/public/left.html'"></div>
-                </div>
-                <div ng-switch-when="/login">
-                    <div ng-include="'./partials/public/left.html'"></div>
-                </div>
-                <div ng-switch-when="/register">
-                    <div ng-include="'./partials/public/left.html'"></div>
-                </div>
-                <div ng-switch-when="/user/home">
-                    <div ng-include="'./partials/user/left.html'"></div>
-                </div>
-                <div ng-switch-when="/user/ads/publish">
-                    <div ng-include="'./partials/user/left.html'"></div>
-                </div>
-                <div ng-switch-when="/user/ads">
-                    <div ng-include="'./partials/user/left.html'"></div>
-                </div>
-                <div ng-switch-when="edit">
-                    <div ng-include="'./partials/user/left.html'"></div>
-                </div>
-                <div ng-switch-when="delete">
-                    <div ng-include="'./partials/user/left.html'"></div>
-                </div>
-                <div ng-switch-when="/user/profile">
-                    <div ng-include="'./partials/user/left.html'"></div>
-                </div>
-                <div ng-switch-when="/admin/home">
-                    <div ng-include="'./partials/admin/left.html'"></div>
-                </div>
-                <div ng-switch-when="adminEdit">
-                    <div ng-include="'./partials/admin/left.html'"></div>
-                </div>
-                <div ng-switch-when="adminDelete">
-                    <div ng-include="'./partials/admin/left.html'"></div>
-                </div>
-                <div ng-switch-when="/admin/users/list">
-                    <div ng-include="'./partials/admin/left.html'"></div>
-                </div>
-                <div ng-switch-when="adminEditUser">
-                    <div ng-include="'./partials/admin/left.html'"></div>
-                </div>
-                <div ng-switch-when="adminDeleteUser">
-                    <div ng-include="'./partials/admin/left.html'"></div>
-                </div>
-                <div ng-switch-when="/admin/categories/list">
-                    <div ng-include="'./partials/admin/left.html'"></div>
-                </div>
-                <div ng-switch-when="/admin/categories/create">
-                    <div ng-include="'./partials/admin/left.html'"></div>
-                </div>
-                <div ng-switch-when="/admin/towns/list">
-                    <div ng-include="'./partials/admin/left.html'"></div>
-                </div>
-                <div ng-switch-when="/admin/towns/create">
-                    <div ng-include="'./partials/admin/left.html'"></div>
-                </div>
-                <div ng-switch-when="adminEditCategory">
-                    <div ng-include="'./partials/admin/left.html'"></div>
-                </div>
-                <div ng-switch-when="adminDeleteCategory">
-                    <div ng-include="'./partials/admin/left.html'"></div>
-                </div>
-            </aside>
         </div>
     </div>
     <footer>
-        <div class="row">
-            <div class="container-fluid">
-                <div class="panel">
-                    <h4 class="text-center">© 2015 by Presian Danailov, No Rights Reserved</h4>
-                </div>
+        <div class="container-fluid">
+            <div class="panel">
+                <h4 class="text-center">© 2015 by Presian Danailov, No Rights Reserved</h4>
             </div>
         </div>
     </footer>
@@ -151,12 +39,11 @@
     <script src="./lib/angular-ui-notification/angular-ui-notification.min.js"></script>
     <script src="./js/modules/app.js"></script>
     <script src="./js/controllers/appCtrl.js"></script>
-    <script src="./js/controllers/public/mainViewCtrl.js"></script>
-    <script src="./js/controllers/public/adsCtrl.js"></script>
-    <script src="./js/controllers/public/rightCtrl.js"></script>
-    <script src="./js/controllers/public/regCtrl.js"></script>
+    <script src="./js/controllers/public/publicAdsCtrl.js"></script>
+    <script src="./js/controllers/public/registrationCtrl.js"></script>
     <script src="./js/controllers/public/loginCtrl.js"></script>
-    <script src="./js/controllers/user/publishAdCtrl.js"></script>
+    <script src="./js/controllers/user/userHomeCtrl.js"></script>
+    <script src="./js/controllers/user/userPublishAdCtrl.js"></script>
     <script src="./js/controllers/user/userAdsCtrl.js"></script>
     <script src="./js/controllers/user/userEditAdCtrl.js"></script>
     <script src="./js/controllers/user/userDeleteAdCtrl.js"></script>
@@ -175,18 +62,17 @@
     <script src="./js/controllers/admin/adminCreateTownCtrl.js"></script>
     <script src="./js/controllers/admin/adminEditTownCtrl.js"></script>
     <script src="./js/controllers/admin/adminDeleteTownCtrl.js"></script>
-    <script src="./js/services/categoryData.js"></script>
-    <script src="./js/services/townsData.js"></script>
-    <script src="./js/services/adsData.js"></script>
-    <script src="./js/services/userAdsData.js"></script>
-    <script src="./js/services/userProfileData.js"></script>
-    <script src="./js/services/authChecker.js"></script>
-    <script src="./js/services/notifications.js"></script>
-    <script src="./js/services/adminAdsData.js"></script>
-    <script src="./js/services/picPreview.js"></script>
-    <script src="./js/services/adminUsersData.js"></script>
-    <script src="./js/services/adminCategoriesData.js"></script>
-    <script src="./js/services/adminTownsData.js"></script>
+    <script src="./js/services/categoriesAndTownDataSvc.js"></script>
+    <script src="./js/services/publicAdsDataSvc.js"></script>
+    <script src="./js/services/userAdsDataSvc.js"></script>
+    <script src="./js/services/userProfileDataSvc.js"></script>
+    <script src="./js/services/authenticationSvc.js"></script>
+    <script src="./js/services/notificationsSvc.js"></script>
+    <script src="./js/services/adminAdsDataSvc.js"></script>
+    <script src="./js/services/picPreviewSvc.js"></script>
+    <script src="./js/services/adminUsersDataSvc.js"></script>
+    <script src="./js/services/adminCategoriesDataSvc.js"></script>
+    <script src="./js/services/adminTownsDataSvc.js"></script>
 </body>
 
 </html>

@@ -1,37 +1,19 @@
 'use strict';
 
 app.controller('UserEditAdCtrl', function($scope, $routeParams, $location,
-    userAdsData, townsData, categoryData, authChecker, noty) {
-    authChecker.checkUser();
-    $scope.ad = userAdsData.getById($routeParams.id);
-    $scope.towns = townsData.query();
-    $scope.categories = categoryData.query();
+    userAdsDataSvc, categoriesAndTownsDataSvc, authenticationSvc, noty, picPreviewSvc) {
+    authenticationSvc.checkUser();
+    $scope.pageTitle = 'Edit Ad';
+    $scope.ad = userAdsDataSvc.getById($routeParams.id);
+    $scope.towns = categoriesAndTownsDataSvc.getTowns();
+    $scope.categories = categoriesAndTownsDataSvc.getCategories();
 
     $scope.fileSelected = function(fileInputField) {
-        delete $scope.ad.imageDataUrl;
-        var file = fileInputField.files[0];
-        if (file.type.match(/image\/.*/)) {
-            var reader = new FileReader();
-            reader.onload = function() {
-                $scope.ad.imageDataUrl = reader.result;
-                $scope.ad.changeImage = true;
-                $("#ad-image").html("<img src='" + reader.result + "'>");
-                $('#imageName')
-                    .html('<input type="text" class="form-control" placeholder="Image url" disabled="disabled" value="' +
-                        file.name + '">');
-            };
-            reader.readAsDataURL(file);
-        } else {
-            $('#imageName').attr('value', '');
-            $('#ad-image').html('<p>File type not supported!</p>');
-        }
+        $scope.ad = picPreviewSvc.live(fileInputField, $scope.ad);
     };
 
     $scope.deleteImage = function() {
-        $scope.ad.imageDataUrl = '';
-        $scope.ad.changeImage = true;
-        $('#ad-image').html('<img ng-src="{{ad.imageDataUrl}}">');
-        $('#imageName').html('');
+        $scope.ad = picPreviewSvc.del($scope.ad);
     };
 
     $scope.editCurrentAd = function() {
@@ -43,13 +25,13 @@ app.controller('UserEditAdCtrl', function($scope, $routeParams, $location,
             $scope.ad.townId = null;
         }
 
-        userAdsData.edit($routeParams.id, $scope.ad).$promise
+        userAdsDataSvc.edit($routeParams.id, $scope.ad).$promise
             .then(function(data) {
                 $location.path('/user/ads');
                 noty.yes(data.message);
             }, function(error) {
-                noty.no('Houston we have a problem!');
+                noty.no('Editing failed, please try again later!');
             });
-    }
+    };
 
 });
