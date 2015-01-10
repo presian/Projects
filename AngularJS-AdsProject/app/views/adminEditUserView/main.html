@@ -12,16 +12,17 @@
                         </div>
                         <div class="row">
                             <div class="col-xs-10">
-                                <input type="text" class="form-control" ng-model="user.username" name="username" ng-pattern="/[\w\d_\-@#$&?!]{5,}/" required>
+                                <input type="text" class="form-control" data-ng-model="user.username" name="username" data-ng-pattern="/[\w\d_\-@#$&?!]{5,}/" required>
 
                             </div>
-                            <div class="col-sx-2"><img class="form-icons" src="./images/X.png" alt="X" ng-show="editProfile.username.$error.required || editProfile.username.$error.pattern">
-                                <img class="form-icons" src="./images/check.png" alt="checked" ng-show="!editProfile.username.$error.required && !editProfile.username.$error.pattern">
+                            <div class="col-xs-2">
+                                <img class="form-icons" src="./images/X.png" alt="X" data-ng-show="editProfile.username.$error.required || editProfile.username.$error.pattern">
+                                <img class="form-icons" src="./images/check.png" alt="checked" data-ng-show="!editProfile.username.$error.required && !editProfile.username.$error.pattern">
                             </div>
                         </div>
-                        <div class="row">
-                            <span ng-show="editProfile.username.$error.required" class="col-sx-12">Required! Allowed symbols: A-Z, a-z, 0-9, _-@#$&?!</span>
-                            <span ng-show="editProfile.username.$error.pattern">Allowed symbols (at least 5): A-Z, a-z, 0-9, _-@#$&?!</span>
+                        <div>
+                            <span data-ng-show="editProfile.username.$error.required" class="col-sx-12">Required! Allowed symbols: A-Z, a-z, 0-9, _-@#$&?!</span>
+                            <span data-ng-show="editProfile.username.$error.pattern">Allowed symbols (at least 5): A-Z, a-z, 0-9, _-@#$&?!</span>
                         </div>
                     </div>
                     <div class="form-group">
@@ -30,16 +31,17 @@
                         </div>
                         <div class="row">
                             <div class="col-xs-10">
-                                <input type="text" class="form-control" ng-model="user.name" name="name" ng-pattern="/[\w\d_\-@#$&?!]{3,}/" required>
+                                <input type="text" class="form-control" data-ng-model="user.name" name="name" data-ng-pattern="/[\w\d_\-@#$&?!]{3,}/" required>
 
                             </div>
-                            <div class="col-sx-2"><img class="form-icons" src="./images/X.png" alt="X" ng-show="editProfile.name.$error.required || editProfile.name.$error.pattern">
-                                <img class="form-icons" src="./images/check.png" alt="checked" ng-show="!editProfile.name.$error.required && !editProfile.name.$error.pattern">
+                            <div class="col-xs-2">
+                                <img class="form-icons" src="./images/X.png" alt="X" data-ng-show="editProfile.name.$error.required || editProfile.name.$error.pattern">
+                                <img class="form-icons" src="./images/check.png" alt="checked" data-ng-show="!editProfile.name.$error.required && !editProfile.name.$error.pattern">
                             </div>
                         </div>
-                        <div class="row">
-                            <span ng-show="editProfile.name.$error.required" class="col-sx-12">Required! Allowed symbols: A-Z, a-z, 0-9, _-@#$&?!</span>
-                            <span ng-show="editProfile.name.$error.pattern">Allowed symbols (at least 3): A-Z, a-z, 0-9, _-@#$&?!</span>
+                        <div>
+                            <span data-ng-show="editProfile.name.$error.required" class="col-sx-12">Required! Allowed symbols: A-Z, a-z, 0-9, _-@#$&?!</span>
+                            <span data-ng-show="editProfile.name.$error.pattern">Allowed symbols (at least 3): A-Z, a-z, 0-9, _-@#$&?!</span>
                         </div>
                     </div>
                     <div class="form-group">
@@ -48,16 +50,16 @@
                         </div>
                         <div class="row">
                             <div class="col-xs-10">
-                                <input type="email" class="form-control" ng-model="user.email" name="email" required>
+                                <input type="email" class="form-control" data-ng-model="user.email" name="email" required>
                             </div>
-                            <div class="col-sx-2">
-                                <img class="form-icons" src="./images/X.png" alt="X" ng-show="editProfile.email.$error.required || editProfile.email.$invalid">
-                                <img class="form-icons" src="./images/check.png" alt="checked" ng-show="!editProfile.email.$error.required && !editProfile.email.$invalid">
+                            <div class="col-xs-2">
+                                <img class="form-icons" src="./images/X.png" alt="X" data-ng-show="editProfile.email.$error.required || editProfile.email.$invalid">
+                                <img class="form-icons" src="./images/check.png" alt="checked" data-ng-show="!editProfile.email.$error.required && !editProfile.email.$invalid">
                             </div>
                         </div>
-                        <div class="row">
-                            <span ng-show="editProfile.email.$error.required">Required!</span>
-                            <span ng-show="editProfile.email.$invalid && !editProfile.email.$error.required">Please enter valid e-mail!</span>
+                        <div>
+                            <span data-ng-show="editProfile.email.$error.required">Required!</span>
+                            <span data-ng-show="editProfile.email.$invalid && !editProfile.email.$error.required">Please enter valid e-mail!</span>
                         </div>
                     </div>
                     <div class="form-group">
@@ -66,35 +68,42 @@
                         </div>
                         <div class="row">
                             <div class="col-xs-10">
-                                <input type="text" class="form-control" ng-model="user.phoneNumber" name="phone" ng-pattern="/[\d\-+()]{5,}/" required>
+                                <input type="text" class="form-control" data-ng-model="user.phoneNumber" name="phone" data-ng-pattern="/[\d\-+()]{5,}/" required>
 
                             </div>
-                            <div class="col-sx-2">
-                                <img class="form-icons" src="./images/X.png" alt="X" ng-show="editProfile.phone.$error.pattern || editProfile.phone.$error.required" />
-                                <img class="form-icons" src="./images/check.png" alt="checked" ng-show="!editProfile.phone.$error.pattern && !editProfile.phone.$error.required" />
+                            <div class="col-xs-2">
+                                <img class="form-icons" src="./images/X.png" alt="X" data-ng-show="editProfile.phone.$error.pattern || editProfile.phone.$error.required" />
+                                <img class="form-icons" src="./images/check.png" alt="checked" data-ng-show="!editProfile.phone.$error.pattern && !editProfile.phone.$error.required" />
                             </div>
                         </div>
-                        <div class="row">
-                            <span ng-show="editProfile.phone.$error.required">Requred!</span>
-                            <span ng-show="editProfile.phone.$error.pattern">Allowed symbols (at least 5): [0-9]-()+</span>
+                        <div>
+                            <span data-ng-show="editProfile.phone.$error.required">Requred!</span>
+                            <span data-ng-show="editProfile.phone.$error.pattern">Allowed symbols (at least 5): [0-9]-()+</span>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="town" class="col-xs-2 control-label">Town</label>
-                        <select class="form-control" name="town" ng-model="user.townId">
-                            <option value="null">None</option>
-                            <option value="{{town.id}}" ng-repeat="town in towns" ng-selected="user.townId===town.id">{{town.name}}</option>
-                        </select>
+                        <div class="row">
+                            <div class="col-xs-10">
+                                <select class="form-control" name="town" data-ng-model="user.townId">
+                                    <option value="null">None</option>
+                                    <option value="{{town.id}}" data-ng-repeat="town in towns" data-ng-selected="user.townId===town.id">{{town.name}}</option>
+                                </select>
+                            </div>
+                            <div class="col-xs-2">
+                                <img class="form-icons" src="./images/check.png" alt="checked">
+                            </div>
+                        </div>
                     </div>
                     <div class="form-group">
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" ng-model="user.isAdmin">Is Administrator</label>
+                                <input type="checkbox" data-ng-model="user.isAdmin">Is Administrator</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-xs-4 col-xs-offset-1">
-                            <a href="" class="btn btn-danger col-xs-12" ng-click="edit()" ng-disabled="editProfile.$invalid">Edit</a>
+                            <a href="" class="btn btn-danger col-xs-12" data-ng-click="edit()" data-ng-disabled="editProfile.$invalid">Edit</a>
                         </div>
                         <div class="col-xs-4 col-xs-offset-2">
                             <a href="#/admin/users/list" class="btn btn-default col-xs-12" data-ng-click="cancelEditing()">Cancel</a>
@@ -119,12 +128,11 @@
                         </div>
                         <div class="row">
                             <div class="col-xs-10">
-                                <input type="textd" class="form-control" ng-model="passwordData.username" name="username" disabled>
+                                <input type="textd" class="form-control" data-ng-model="passwordData.username" name="username" disabled>
                             </div>
-                        </div>
-                        <div class="row">
-                            <span ng-show="changePassword.oldPass.$error.required" class="col-sx-12">Required! Allowed symbols: A-Z, a-z, 0-9, _-@#$&?!</span>
-                            <span ng-show="changePassword.oldPass.$error.pattern">Allowed symbols (at least 5): A-Z, a-z, 0-9, _-@#$&?!</span>
+                            <div class="col-xs-2">
+                                <img class="form-icons" src="./images/check.png" alt="checked">
+                            </div>
                         </div>
                     </div>
                     <div class="form-group">
@@ -133,16 +141,16 @@
                         </div>
                         <div class="row">
                             <div class="col-xs-10">
-                                <input type="password" class="form-control" ng-model="passwordData.newPassword" name="newPass" required ng-pattern="/[\w\d_\-@#$&?!]{5,}/">
+                                <input type="password" class="form-control" data-ng-model="passwordData.newPassword" name="newPass" required data-ng-pattern="/[\w\d_\-@#$&?!]{5,}/">
                             </div>
-                            <div class="col-sx-2">
-                                <img class="form-icons" src="./images/X.png" alt="X" ng-show="changePassword.newPass.$error.required || changePassword.newPass.$error.pattern">
-                                <img class="form-icons" src="./images/check.png" alt="checked" ng-show="!changePassword.newPass.$error.required && !changePassword.newPass.$error.pattern">
+                            <div class="col-xs-2">
+                                <img class="form-icons" src="./images/X.png" alt="X" data-ng-show="changePassword.newPass.$error.required || changePassword.newPass.$error.pattern">
+                                <img class="form-icons" src="./images/check.png" alt="checked" data-ng-show="!changePassword.newPass.$error.required && !changePassword.newPass.$error.pattern">
                             </div>
                         </div>
-                        <div class="row">
-                            <span ng-show="changePassword.newPass.$error.required">Required! Allowed symbols: A-Z, a-z, 0-9, _-@#$&?!</span>
-                            <span ng-show="changePassword.newPass.$error.pattern">Allowed symbols (at least 5): A-Z, a-z, 0-9, _-@#$&?!</span>
+                        <div>
+                            <span data-ng-show="changePassword.newPass.$error.required">Required! Allowed symbols: A-Z, a-z, 0-9, _-@#$&?!</span>
+                            <span data-ng-show="changePassword.newPass.$error.pattern">Allowed symbols (at least 5): A-Z, a-z, 0-9, _-@#$&?!</span>
                         </div>
                     </div>
                     <div class="form-group">
@@ -151,20 +159,21 @@
                         </div>
                         <div class="row">
                             <div class="col-xs-10">
-                                <input type="password" class="form-control" ng-model="passwordData.confirmPassword" name="confirmPass" required ng-pattern="/[\w\d_\-@#$&?!]{5,}/" data-match="passwordData.newPassword">
+                                <input type="password" class="form-control" data-ng-model="passwordData.confirmPassword" name="confirmPass" required data-ng-pattern="/[\w\d_\-@#$&?!]{5,}/" data-match="passwordData.newPassword">
                             </div>
-                            <div class="col-sx-2"><img class="form-icons" src="./images/X.png" alt="X" ng-show="changePassword.confirmPass.$error.required || changePassword.confirmPass.$error.pattern || changePassword.confirmPass.$error.match">
-                                <img class="form-icons" src="./images/check.png" alt="checked" ng-show="!changePassword.confirmPass.$error.required && !changePassword.confirmPass.$error.pattern && !changePassword.confirmPass.$error.match">
+                            <div class="col-xs-2">
+                                <img class="form-icons" src="./images/X.png" alt="X" data-ng-show="changePassword.confirmPass.$error.required || changePassword.confirmPass.$error.pattern || changePassword.confirmPass.$error.match">
+                                <img class="form-icons" src="./images/check.png" alt="checked" data-ng-show="!changePassword.confirmPass.$error.required && !changePassword.confirmPass.$error.pattern && !changePassword.confirmPass.$error.match">
                             </div>
                         </div>
-                        <div class="row">
-                            <span ng-show="changePassword.confirmPass.$error.required">Required! Allowed symbols: A-Z, a-z, 0-9, _-@#$&?!</span>
-                            <span ng-show="changePassword.confirmPass.$error.match">This password is not same!</span>
+                        <div>
+                            <span data-ng-show="changePassword.confirmPass.$error.required">Required! Allowed symbols: A-Z, a-z, 0-9, _-@#$&?!</span>
+                            <span data-ng-show="changePassword.confirmPass.$error.match">This password is not same!</span>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-xs-4 col-xs-offset-1">
-                            <a href="" class="btn btn-danger col-xs-12" ng-click="changePass()" ng-disabled="changePassword.$invalid">Change</a>
+                            <a href="" class="btn btn-danger col-xs-12" data-ng-click="changePass()" data-ng-disabled="changePassword.$invalid">Change</a>
                         </div>
                         <div class="col-xs-4 col-xs-offset-2">
                             <a href="#/admin/users/list" class="btn btn-default col-xs-12" data-ng-click="cancelEditing()">Cancel</a>

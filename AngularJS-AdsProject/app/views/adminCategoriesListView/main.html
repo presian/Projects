@@ -7,18 +7,18 @@
             <thead>
                 <tr>
                     <th>
-                        <a href="" ng-click="getCategoriesData.order='Id'">Id &#8681</a>
-                        <a href="" ng-click="getCategoriesData.order='-Id'">Id &#8679</a>
+                        <a href="" data-ng-click="getCategoriesData.order='Id'">Id &#8681</a>
+                        <a href="" data-ng-click="getCategoriesData.order='-Id'">Id &#8679</a>
                     </th>
                     <th>
-                        <a href="" ng-click="getCategoriesData.order='Name'">Name &#8681</a>
-                        <a href="" ng-click="getCategoriesData.order='-Name'">Name &#8679</a>
+                        <a href="" data-ng-click="getCategoriesData.order='Name'">Name &#8681</a>
+                        <a href="" data-ng-click="getCategoriesData.order='-Name'">Name &#8679</a>
                     </th>
                     <th>Action</th>
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="category in categories">
+                <tr data-ng-repeat="category in categories">
                     <td>{{category.id}}</td>
                     <td>{{category.username}}</td>
                     <td>
@@ -30,4 +30,4 @@
         </table>
     </div>
 </div>
-<div class="text-center" ng-include="'./partials/public/paging.html'"></div>
+<div class="text-center" data-ng-include="'./partials/public/paging.html'"></div>

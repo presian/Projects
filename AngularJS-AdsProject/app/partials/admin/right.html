@@ -1,20 +1,20 @@
 <div class="form-group">
     <label for="town">Select Town:</label>
-    <select class="form-control" id="town" ng-model="getAdsData.townId">
+    <select class="form-control" id="town" data-ng-model="getAdsData.townId">
         <option value="">All</option>
-        <option value="{{town.id}}" ng-repeat="town in towns">{{town.name}}</option>
+        <option value="{{town.id}}" data-ng-repeat="town in towns">{{town.name}}</option>
     </select>
 </div>
 <div class="form-group">
     <label for="categoty">Select Category:</label>
-    <select class="form-control" id="categoty" ng-model="getAdsData.categoryId">
+    <select class="form-control" id="categoty" data-ng-model="getAdsData.categoryId">
         <option value="">All</option>
-        <option value="{{categoty.id}}" ng-repeat="categoty in categories">{{categoty.name}}</option>
+        <option value="{{categoty.id}}" data-ng-repeat="categoty in categories">{{categoty.name}}</option>
     </select>
 </div>
 <div class="form-group">
     <label for="order">Order by:</label>
-    <select class="form-control" id="order" ng-model="getAdsData.order">
+    <select class="form-control" id="order" data-ng-model="getAdsData.order">
         <option value="-Title">Title &#8681</option>
         <option value="Title">Title &#8679</option>
         <option value="-Date">Data &#8681</option>
@@ -29,7 +29,7 @@
 </div>
 <div class="form-group">
     <label for="pageSize">Ads per page:</label>
-    <select class="form-control" id="pageSize" ng-model="getAdsData.pageSize">
+    <select class="form-control" id="pageSize" data-ng-model="getAdsData.pageSize">
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>

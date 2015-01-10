@@ -12,9 +12,13 @@ app.controller('AdminDeleteUserCtrl', function($scope, $routeParams, $location, 
             .then(function(data) {
                 noty.yes(data.message);
                 $location.path('admin/users/list');
-                // $cookieStore.remove('editedUser');
+                $cookieStore.remove('editedUser');
             }, function(error) {
                 noty.no(error, 'Deleteing failed, please try again later!');
             });
+    };
+
+    $scope.cancelDeleting = function() {
+        $cookieStore.remove('editedUser');
     };
 });

@@ -17,8 +17,10 @@
                                 <img class="form-icons" src="./images/check.png" alt="checked" data-ng-show="!loginForm.inputName.$error.required && !loginForm.inputName.$error.pattern">
                             </div>
                         </div>
-                        <span data-ng-show="loginForm.inputName.$error.required">Required! Allowed symbols: A-Z, a-z, 0-9, _-@#$&?!</span>
-                        <span data-ng-show="loginForm.inputName.$error.pattern">Allowed symbols (at least 5): A-Z, a-z, 0-9, _-@#$&?!</span>
+                        <div>
+                            <span data-ng-show="loginForm.inputName.$error.required">Required! Allowed symbols: A-Z, a-z, 0-9, _-@#$&?!</span>
+                            <span data-ng-show="loginForm.inputName.$error.pattern">Allowed symbols (at least 5): A-Z, a-z, 0-9, _-@#$&?!</span>
+                        </div>
                     </div>
                 </div>
                 <div class="form-group">
@@ -33,8 +35,10 @@
                                 <img class="form-icons" src="./images/check.png" alt="checked" data-ng-show="!loginForm.inputPassword.$error.required && !loginForm.inputPassword.$error.pattern">
                             </div>
                         </div>
-                        <span data-ng-show="loginForm.inputPassword.$error.required">Required! Allowed symbols: A-Z, a-z, 0-9, _-@#$&?!</span>
-                        <span data-ng-show="loginForm.inputPassword.$error.pattern">Allowed symbols (5-100): A-Z, a-z, 0-9, _-@#$&?!</span>
+                        <div>
+                            <span data-ng-show="loginForm.inputPassword.$error.required">Required! Allowed symbols: A-Z, a-z, 0-9, _-@#$&?!</span>
+                            <span data-ng-show="loginForm.inputPassword.$error.pattern">Allowed symbols (5-100): A-Z, a-z, 0-9, _-@#$&?!</span>
+                        </div>
                     </div>
                 </div>
                 <div class="form-group">

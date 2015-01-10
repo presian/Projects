@@ -8,10 +8,8 @@ app.factory('authenticationSvc', function($location, $cookieStore, noty) {
         var path = $location.path();
         var indexUser = path.indexOf('user');
         if (indexUser >= 0 && !token) {
-            noty.no('You do not have permission to access!');
             $location.path('/');
         } else if (indexUser >= 0 && isAdmin) {
-            noty.no('You do not have permission to access!');
             $location.path('/admin/home');
         }
     }
@@ -23,10 +21,8 @@ app.factory('authenticationSvc', function($location, $cookieStore, noty) {
         var indexAdmin = path.indexOf('admin');
         if (indexAdmin >= 0 && !isAdmin) {
             if (token) {
-                noty.no('You do not have permission to access!');
                 $location.path('/user/home');
             } else {
-                noty.no('You do not have permission to access!');
                 $location.path('/');
             }
         }

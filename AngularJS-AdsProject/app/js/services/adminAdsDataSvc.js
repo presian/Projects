@@ -14,6 +14,8 @@ app.factory('adminAdsDataSvc', function($resource, $cookieStore, $http, BASE_URL
         });
 
     function getAds(data) {
+        var token = $cookieStore.get('token');
+        $http.defaults.headers.common.Authorization = 'Bearer ' + token;
         var res = $resource(
             BASE_URL + 'admin/ads?Status=' + data.status + '&CategoryId=' + data.categoryId +
             '&TownId=' + data.townId + '&SortBy=' + data.order +

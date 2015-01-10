@@ -17,8 +17,10 @@
                                 <img class="form-icons" src="./images/check.png" alt="checked" data-ng-show="!regForm.inputName.$error.required && !regForm.inputName.$error.pattern">
                             </div>
                         </div>
-                        <span data-ng-show="regForm.inputName.$error.required">Required! Allowed symbols: A-Z, a-z, 0-9, _-@#$&?!</span>
-                        <span data-ng-show="regForm.inputName.$error.pattern">Allowed symbols (5-100): A-Z, a-z, 0-9, _-@#$&?!</span>
+                        <div>
+                            <span data-ng-show="regForm.inputName.$error.required">Required! Allowed symbols: A-Z, a-z, 0-9, _-@#$&?!</span>
+                            <span data-ng-show="regForm.inputName.$error.pattern">Allowed symbols (5-100): A-Z, a-z, 0-9, _-@#$&?!</span>
+                        </div>
                     </div>
                 </div>
                 <div class="form-group">
@@ -33,8 +35,10 @@
                                 <img class="form-icons" src="./images/check.png" alt="checked" data-ng-show="!regForm.inputPassword.$error.required && !regForm.inputPassword.$error.pattern">
                             </div>
                         </div>
-                        <span data-ng-show="regForm.inputPassword.$error.required">Required! Allowed symbols: A-Z, a-z, 0-9, _-@#$&?!</span>
-                        <span data-ng-show="regForm.inputPassword.$error.pattern">Allowed symbols (5-100): A-Z, a-z, 0-9, _-@#$&?!</span>
+                        <div>
+                            <span data-ng-show="regForm.inputPassword.$error.required">Required! Allowed symbols: A-Z, a-z, 0-9, _-@#$&?!</span>
+                            <span data-ng-show="regForm.inputPassword.$error.pattern">Allowed symbols (5-100): A-Z, a-z, 0-9, _-@#$&?!</span>
+                        </div>
                     </div>
                 </div>
                 <div class="form-group">
@@ -49,8 +53,10 @@
                                 <img class="form-icons" src="./images/check.png" alt="checked" data-ng-show="!regForm.inputConfirmPassword.$error.required && !regForm.inputConfirmPassword.$error.pattern && !regForm.inputConfirmPassword.$error.match">
                             </div>
                         </div>
-                        <span data-ng-show="regForm.inputConfirmPassword.$error.required">Required! Allowed symbols: A-Z, a-z, 0-9, _-@#$&?!</span>
-                        <span data-ng-show="regForm.inputConfirmPassword.$error.match">This password is not same!</span>
+                        <div>
+                            <span data-ng-show="regForm.inputConfirmPassword.$error.required">Required! Allowed symbols: A-Z, a-z, 0-9, _-@#$&?!</span>
+                            <span data-ng-show="regForm.inputConfirmPassword.$error.match">This password is not same!</span>
+                        </div>
                     </div>
                 </div>
                 <div class="form-group">
@@ -65,8 +71,10 @@
                                 <img class="form-icons" src="./images/check.png" alt="checked" data-ng-show="!regForm.inputFullName.$error.required && !regForm.inputFullName.$error.pattern">
                             </div>
                         </div>
-                        <span data-ng-show="regForm.inputFullName.$error.required">Required! Allowed symbols: A-Z, a-z, 0-9, _-@#$&?!</span>
-                        <span data-ng-show="regForm.inputFullName.$error.pattern">Allowed symbols (at least 3): A-Z, a-z, 0-9, _-@#$&?!</span>
+                        <div>
+                            <span data-ng-show="regForm.inputFullName.$error.required">Required! Allowed symbols: A-Z, a-z, 0-9, _-@#$&?!</span>
+                            <span data-ng-show="regForm.inputFullName.$error.pattern">Allowed symbols (at least 3): A-Z, a-z, 0-9, _-@#$&?!</span>
+                        </div>
                     </div>
                 </div>
                 <div class="form-group">
@@ -81,8 +89,10 @@
                                 <img class="form-icons" src="./images/check.png" alt="checked" data-ng-show="!regForm.inputEmail.$error.required && !regForm.inputEmail.$invalid">
                             </div>
                         </div>
-                        <span data-ng-show="regForm.inputEmail.$error.required">Required!</span>
-                        <span data-ng-show="regForm.inputEmail.$invalid && !regForm.inputEmail.$error.required">Please enter valid e-mail!</span>
+                        <div>
+                            <span data-ng-show="regForm.inputEmail.$error.required">Required!</span>
+                            <span data-ng-show="regForm.inputEmail.$invalid && !regForm.inputEmail.$error.required">Please enter valid e-mail!</span>
+                        </div>
                     </div>
                 </div>
                 <div class="form-group">
@@ -97,8 +107,10 @@
                                 <img class="form-icons" src="./images/check.png" alt="checked" data-ng-show="!regForm.inputPhone.$error.pattern && !regForm.inputPhone.$error.required">
                             </div>
                         </div>
-                        <span data-ng-show="regForm.inputPhone.$error.required">Requred!</span>
-                        <span data-ng-show="regForm.inputPhone.$error.pattern">Allowed symbols (at least 5): [0-9]-()+</span>
+                        <div>
+                            <span data-ng-show="regForm.inputPhone.$error.required">Requred!</span>
+                            <span data-ng-show="regForm.inputPhone.$error.pattern">Allowed symbols (at least 5): [0-9]-()+</span>
+                        </div>
                     </div>
                 </div>
                 <div class="form-group">

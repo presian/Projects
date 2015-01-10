@@ -15,6 +15,8 @@ app.factory('userAdsDataSvc', function($resource, $cookieStore, $http, BASE_URL)
 
 
     function getFilteredAds(statusFilter, startPage) {
+        var token = $cookieStore.get('token');
+        $http.defaults.headers.common.Authorization = 'Bearer ' + token;
         var res = $resource(
             BASE_URL + 'user/ads?Status=' + statusFilter.status + '&StartPage=' + startPage + '&PageSize=3');
         return res.get();
@@ -34,10 +36,6 @@ app.factory('userAdsDataSvc', function($resource, $cookieStore, $http, BASE_URL)
             id: adId
         });
     }
-
-    // function getAllAds() {
-    //     return resource.get();
-    // }
 
     function createNewAd(ad) {
         return resource.save(ad);
@@ -64,7 +62,6 @@ app.factory('userAdsDataSvc', function($resource, $cookieStore, $http, BASE_URL)
     return {
         deactivateOrPublisAd: deactivateOrPublisAd,
         getFilteredAds: getFilteredAds,
-        // getAll: getAllAds,
         create: createNewAd,
         getById: getAdById,
         edit: editAd,
