@@ -27,10 +27,8 @@ app.controller('LoginCtrl', function($scope, $resource, $location,
 
                     $scope.$parent.userData.username = data.username;
                     if (data.isAdmin) {
-                        $route.reload();
                         $location.path('admin/home');
                     } else {
-                        $route.reload();
                         $location.path('user/home');
                     }
                     noty.yes('Login successfuly');

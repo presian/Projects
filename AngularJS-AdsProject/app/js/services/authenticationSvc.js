@@ -9,8 +9,10 @@ app.factory('authenticationSvc', function($location, $cookieStore, noty) {
         var indexUser = path.indexOf('user');
         if (indexUser >= 0 && !token) {
             $location.path('/');
+            window.location.reload();
         } else if (indexUser >= 0 && isAdmin) {
             $location.path('/admin/home');
+            window.location.reload();
         }
     }
 
@@ -22,8 +24,10 @@ app.factory('authenticationSvc', function($location, $cookieStore, noty) {
         if (indexAdmin >= 0 && !isAdmin) {
             if (token) {
                 $location.path('/user/home');
+                window.location.reload();
             } else {
                 $location.path('/');
+                window.location.reload();
             }
         }
     }
