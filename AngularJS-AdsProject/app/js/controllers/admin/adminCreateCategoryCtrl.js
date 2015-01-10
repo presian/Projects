@@ -15,7 +15,7 @@ app.controller('AdminCreateCategoryCtrl', function($scope, $location,
                 noty.yes(data.message);
                 $location.path('admin/categories/list');
             }, function(error) {
-                noty.no('Creating failed, please try again later!');
+                noty.no(error, 'Creating failed, please try again later!');
             });
     };
 });

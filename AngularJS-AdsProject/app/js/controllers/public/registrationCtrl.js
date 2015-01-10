@@ -30,7 +30,7 @@ app.controller('RegistrationCtrl', function($scope, $resource, $location, $cooki
                     noty.yes('Registration complete!');
                 },
                 function(error) {
-                    noty.no('Registration failed, please try again later!');
+                    noty.no(error, 'Registration failed, please try again later!');
                 }
             );
     };

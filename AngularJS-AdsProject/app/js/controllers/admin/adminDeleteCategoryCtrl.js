@@ -15,7 +15,8 @@ app.controller('AdminDeleteCategoryCtrl', function($scope, $location, $routePara
                 noty.yes(data.message);
                 $location.path('admin/categories/list');
             }, function(error) {
-                noty.no('Deleting failed, please try again later!');
+                console.log(error);
+                noty.no(error, 'Deleting failed, please try again later!');
             });
     };
 });

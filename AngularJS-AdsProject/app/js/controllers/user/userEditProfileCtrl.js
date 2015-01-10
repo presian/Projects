@@ -17,12 +17,12 @@ app.controller('UserEditProfileCtrl', function($scope, $location, userProfileDat
         .then(function(data) {
             $scope.user = data;
         }, function(error) {
-            noty.no('Cannot load userdata, please try again later!');
+            noty.no(error, 'Cannot load userdata, please try again later!');
         });
 
     $scope.edit = function() {
-        if ($scope.user.id === 'null') {
-            $scope.user.id = null;
+        if ($scope.user.townId === 'null') {
+            $scope.user.townId = null;
         }
 
         userProfileDataSvc.update($scope.user, 'profile').$promise
@@ -30,7 +30,7 @@ app.controller('UserEditProfileCtrl', function($scope, $location, userProfileDat
                 noty.yes(data.message);
                 $location.path('/user/ads');
             }, function(error) {
-                noty.no('Editing failed, please try again later!');
+                noty.no(error, 'Editing failed, please try again later!');
             });
     };
 
@@ -40,7 +40,7 @@ app.controller('UserEditProfileCtrl', function($scope, $location, userProfileDat
                 noty.yes(data.message);
                 $location.path('/user/ads');
             }, function(error) {
-                noty.no('Cannot update password, please try again later!');
+                noty.no(error, 'Cannot update password, please try again later!');
             });
     };
 });

@@ -14,7 +14,7 @@ app.controller('AdminDeleteUserCtrl', function($scope, $routeParams, $location, 
                 $location.path('admin/users/list');
                 // $cookieStore.remove('editedUser');
             }, function(error) {
-                noty.no('Deleteing failed, please try again later!');
+                noty.no(error, 'Deleteing failed, please try again later!');
             });
     };
 });

@@ -30,7 +30,7 @@ app.controller('UserEditAdCtrl', function($scope, $routeParams, $location,
                 $location.path('/user/ads');
                 noty.yes(data.message);
             }, function(error) {
-                noty.no('Editing failed, please try again later!');
+                noty.no(error, 'Editing failed, please try again later!');
             });
     };
 

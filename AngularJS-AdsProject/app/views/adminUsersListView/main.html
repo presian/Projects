@@ -3,23 +3,23 @@
         <thead>
             <tr>
                 <th>
-                    <a href="" ng-click="getUsersData.order='UserName'">Username &#8681</a>
-                    <a href="" ng-click="getUsersData.order='-UserName'">Username &#8679</a>
+                    <a href="" data-ng-click="getUsersData.order='UserName'">Username &#8681</a>
+                    <a href="" data-ng-click="getUsersData.order='-UserName'">Username &#8679</a>
                 </th>
                 <th>
-                    <a href="" ng-click="getUsersData.order='Name'">Name &#8681</a>
-                    <a href="" ng-click="getUsersData.order='-Name'">Name &#8679</a>
+                    <a href="" data-ng-click="getUsersData.order='Name'">Name &#8681</a>
+                    <a href="" data-ng-click="getUsersData.order='-Name'">Name &#8679</a>
                 </th>
                 <th>
-                    <a href="" ng-click="getUsersData.order='Email'">Email &#8681</a>
-                    <a href="" ng-click="getUsersData.order='-Email'">Email &#8679</a>
+                    <a href="" data-ng-click="getUsersData.order='Email'">Email &#8681</a>
+                    <a href="" data-ng-click="getUsersData.order='-Email'">Email &#8679</a>
                 </th>
                 <th>Phone</th>
                 <th>Action</th>
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="user in users">
+            <tr data-ng-repeat="user in users">
                 <td>{{user.username}}</td>
                 <td>{{user.name}}</td>
                 <td>{{user.email}}</td>
@@ -32,4 +32,4 @@
         </tbody>
     </table>
 </div>
-<div class="text-center" ng-include="'./partials/public/paging.html'"></div>
+<div class="text-center" data-ng-include="'./partials/public/paging.html'"></div>

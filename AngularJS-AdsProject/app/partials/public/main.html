@@ -1,5 +1,5 @@
-<div class="text-center" ng-include="'./partials/public/paging.html'"></div>
-<div class="panel panel-default" ng-repeat="ad in ads">
+<div class="text-center" data-ng-include="'./partials/public/paging.html'"></div>
+<div class="panel panel-default" data-ng-repeat="ad in ads">
     <div class="panel-heading">
         <div class="row">
             <div class="col-lg-10">
@@ -17,7 +17,7 @@
             <div class="col-lg-4">
                 <div class="well well-sm">
                     <div class="text-center">
-                        <img ng-src="{{ad.imageDataUrl || './images/no_image_available.jpg'}}" alt="adPic">
+                        <img data-ng-src="{{ad.imageDataUrl || './images/no_image_available.jpg'}}" alt="adPic">
                     </div>
                 </div>
             </div>
@@ -42,4 +42,4 @@
         </div>
     </div>
 </div>
-<div class="text-center" ng-include="'./partials/public/paging.html'"></div>
+<div class="text-center" data-ng-include="'./partials/public/paging.html'"></div>

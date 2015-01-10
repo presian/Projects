@@ -5,7 +5,7 @@ app.controller('AdminTownsListCtrl', function($scope, adminTownsDataSvc, authent
     authenticationSvc.checkAdmin();
     $scope.pageTitle = 'Towns';
     $scope.getTownsData = {
-        pageSize: 5,
+        pageSize: 20,
         startPage: 1,
         order: ''
     };

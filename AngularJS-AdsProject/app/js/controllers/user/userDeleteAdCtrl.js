@@ -11,7 +11,7 @@ app.controller('UserDeleteAdCtrl', function($scope, $location, $routeParams,
                 noty.yes(data.message);
                 $location.path('/user/ads');
             }, function(error) {
-                noty.no('Deleting failed, please try again later!');
+                noty.no(error, 'Deleting failed, please try again later!');
             });
     };
 });

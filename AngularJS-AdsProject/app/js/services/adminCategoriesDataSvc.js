@@ -21,6 +21,10 @@ app.factory('adminCategoriesDataSvc', function($http, $cookieStore, $resource, B
         return res.get();
     }
 
+    function getCategory(id) {
+        return $resource(BASE_URL + 'admin/category/' + id).get();
+    }
+
     function createCategory(name) {
         return resource.save({
             id: null
@@ -41,6 +45,7 @@ app.factory('adminCategoriesDataSvc', function($http, $cookieStore, $resource, B
 
     return {
         getCategories: getCategories,
+        getCategory: getCategory,
         createCategory: createCategory,
         editCategory: editCategory,
         deleteCategory: deleteCategory

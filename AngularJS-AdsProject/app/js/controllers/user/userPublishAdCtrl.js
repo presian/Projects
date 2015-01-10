@@ -26,7 +26,7 @@ app.controller('UserPublishAdCtrl', function($scope, $location,
                 noty.yes(data.message);
                 $location.path('user/home');
             }, function(error) {
-                noty.no('Publishing failed, please try again later!');
+                noty.no(error, 'Publishing failed, please try again later!');
             });
     };
 });

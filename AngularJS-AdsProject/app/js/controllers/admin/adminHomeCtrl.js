@@ -45,7 +45,7 @@ app.controller('AdminHomeCtrl', function($scope, authenticationSvc,
                 noty.yes(data.message);
                 $route.reload();
             }, function(error) {
-                noty.no('Action failed, please try again later!');
+                noty.no(error, 'Action failed, please try again later!');
             });
     };
 
@@ -55,7 +55,7 @@ app.controller('AdminHomeCtrl', function($scope, authenticationSvc,
                 noty.yes(data.message);
                 $route.reload();
             }, function(error) {
-                noty.no('Action failed, please try again later!');
+                noty.no(error, 'Action failed, please try again later!');
             });
     };
 
@@ -65,7 +65,7 @@ app.controller('AdminHomeCtrl', function($scope, authenticationSvc,
                 $scope.ads = data.ads;
                 $scope.pagingData.numPages = data.numPages;
             }, function(error) {
-                noty.no('Cannot load data, please try again later!');
+                noty.no(error, 'Cannot load data, please try again later!');
             });
     }
 });

@@ -15,10 +15,14 @@ app.factory('adminTownsDataSvc', function($http, $cookieStore, $resource, BASE_U
         });
 
     function getTowns(data) {
-        var resource = $resource(
+        var res = $resource(
             BASE_URL + 'admin/Towns?SortBy=' + data.order + '&StartPage=' + data.startPage +
             '&PageSize=' + data.pageSize);
-        return resource.get();
+        return res.get();
+    }
+
+    function getTown(id) {
+        return $resource(BASE_URL + 'admin/town/' + id).get();
     }
 
     function createTown(name) {
@@ -41,6 +45,7 @@ app.factory('adminTownsDataSvc', function($http, $cookieStore, $resource, BASE_U
 
     return {
         getTowns: getTowns,
+        getTown: getTown,
         createTown: createTown,
         editTown: editTown,
         deleteTown: deleteTown

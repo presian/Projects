@@ -12,7 +12,7 @@ app.controller('AdminEditAdCtrl', function($scope, $routeParams, adminAdsDataSvc
         .then(function(data) {
             $scope.ad = data;
         }, function(error) {
-            noty.no('Loading data failed, please try again later!');
+            noty.no(error, 'Loading data failed, please try again later!');
         });
 
     $scope.fileSelected = function(fileInputField) {
@@ -37,7 +37,7 @@ app.controller('AdminEditAdCtrl', function($scope, $routeParams, adminAdsDataSvc
                 noty.yes(data.message);
                 $location.path('/admin/home');
             }, function(error) {
-                noty.no('Editing failed, please try again later!');
+                noty.no(error, 'Editing failed, please try again later!');
             });
     };
 

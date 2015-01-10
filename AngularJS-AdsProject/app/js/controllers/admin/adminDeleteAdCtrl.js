@@ -13,7 +13,7 @@ app.controller('AdminDeleteAdCtrl', function($scope, adminAdsDataSvc, $routePara
                 noty.yes(data.message);
                 $location.path('admin/home');
             }, function(error) {
-                noty.no('Deleting failed, please try again later!');
+                noty.no(error, 'Deleting failed, please try again later!');
             });
     };
 });

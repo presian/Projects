@@ -20,11 +20,9 @@ app.factory('adminUsersDataSvc', function($resource, $cookieStore, $http, BASE_U
         return res.get();
     }
 
-    // function getUser(username) {
-    //     return resource.get({
-    //         username: username
-    //     });
-    // }
+    function getUser(id) {
+        return $resource(BASE_URL + 'admin/users/' + id).get();
+    }
 
     function editUser(username, user) {
         return resource.update({
@@ -50,6 +48,7 @@ app.factory('adminUsersDataSvc', function($resource, $cookieStore, $http, BASE_U
 
     return {
         getUsers: getUsers,
+        getUser: getUser,
         editUser: editUser,
         changePassword: changePassword,
         deleteUser: deleteUser

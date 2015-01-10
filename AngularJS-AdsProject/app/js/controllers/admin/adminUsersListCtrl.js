@@ -5,7 +5,7 @@ app.controller('AdminUsersListCtrl', function($scope, adminUsersDataSvc, $cookie
     authenticationSvc.checkAdmin();
     $scope.pageTitle = 'Users';
     $scope.getUsersData = {
-        pageSize: 5,
+        pageSize: 20,
         startPage: 1,
         order: ''
     };
@@ -27,6 +27,7 @@ app.controller('AdminUsersListCtrl', function($scope, adminUsersDataSvc, $cookie
     $scope.getCurrentUser = function(currentUser) {
         $cookieStore.put('editedUser', currentUser);
     };
+
 
     function getUsers() {
         adminUsersDataSvc.getUsers($scope.getUsersData).$promise

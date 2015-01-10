@@ -1,4 +1,4 @@
-<div class="text-center" ng-include="'./partials/public/paging.html'"></div>
+<div class="text-center" data-ng-include="'./partials/public/paging.html'"></div>
 <div class="panel panel-default" data-ng-repeat="ad in userAds">
     <div class="panel-body">
         <div class="col-lg-9">
@@ -18,7 +18,7 @@
                         <div class="col-lg-4">
                             <div class="well well-sm">
                                 <div class="text-center">
-                                    <img ng-src="{{ad.imageDataUrl || './images/no_image_available.jpg'}}" alt="adPic">
+                                    <img data-ng-src="{{ad.imageDataUrl || './images/no_image_available.jpg'}}" alt="adPic">
                                 </div>
                             </div>
                         </div>
@@ -30,10 +30,10 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="well well-sm" ng-show="ad.categoryName">
+                            <div class="well well-sm" data-ng-show="ad.categoryName">
                                 <strong>Categry: </strong>{{ad.categoryName}}
                             </div>
-                            <div class="well well-sm" ng-show="ad.townName">
+                            <div class="well well-sm" data-ng-show="ad.townName">
                                 <strong>Town: </strong>{{ad.townName}}
                             </div>
                         </div>
@@ -48,14 +48,14 @@
                 </div>
                 <div class="panel-body">
                     <div class="btn-group-vertical" style="width: 100%">
-                        <a href="" class="btn btn-default" ng-show="ad.status === 'WaitingApproval' || ad.status === 'Published'" ng-click="makeInactive(ad.id)">Deactivate</a>
-                        <a href="" class="btn btn-default" ng-hide="ad.status === 'WaitingApproval' || ad.status === 'Published'" ng-click="publishAgain(ad.id)">Publish again</a>
-                        <a href="#/user/ads/edit/{{ad.id}}" class="btn btn-default" ng-hide="ad.status === 'WaitingApproval' || ad.status === 'Published'">Edit</a>
-                        <a href="#/user/ads/delete/{{ad.id}}" class="btn btn-default" ng-hide="ad.status === 'WaitingApproval' || ad.status === 'Published'">Delete</a>
+                        <a href="" class="btn btn-default" data-ng-show="ad.status === 'WaitingApproval' || ad.status === 'Published'" data-ng-click="makeInactive(ad.id)">Deactivate</a>
+                        <a href="" class="btn btn-default" data-ng-hide="ad.status === 'WaitingApproval' || ad.status === 'Published'" data-ng-click="publishAgain(ad.id)">Publish again</a>
+                        <a href="#/user/ads/edit/{{ad.id}}" class="btn btn-default" data-ng-hide="ad.status === 'WaitingApproval' || ad.status === 'Published'">Edit</a>
+                        <a href="#/user/ads/delete/{{ad.id}}" class="btn btn-default" data-ng-hide="ad.status === 'WaitingApproval' || ad.status === 'Published'">Delete</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<div class="text-center" ng-include="'./partials/public/paging.html'"></div>
+<div class="text-center" data-ng-include="'./partials/public/paging.html'"></div>

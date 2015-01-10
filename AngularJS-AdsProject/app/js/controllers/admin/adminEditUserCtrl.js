@@ -6,16 +6,17 @@ app.controller('AdminEditUserCtrl', function($scope, $routeParams, $location, $c
     authenticationSvc.checkAdmin();
     $scope.pageTitle = 'Edit user';
     $scope.towns = categoriesAndTownsDataSvc.getTowns();
+    // $scope.user = adminUsersDataSvc.getUser($routeParams.id).$promise
+    //     .then(function(data) {
+    //         $scope.user = data;
+    //         console.log(data);
+    //         $scope.passwordData = {
+    //             username: $scope.user.username,
+    //             newPassword: '',
+    //             confirmPassword: ''
+    //         };
+    //     });
     $scope.user = $cookieStore.get('editedUser');
-    // $scope.user = {
-    //     name: user.name,
-    //     username: user.username,
-    //     email: user.email,
-    //     phoneNumber: user.phoneNumber,
-    //     townId: user.townId,
-    //     isAdmin: user.isAdmin
-    // };
-
     $scope.passwordData = {
         username: $scope.user.username,
         newPassword: '',
@@ -23,13 +24,17 @@ app.controller('AdminEditUserCtrl', function($scope, $routeParams, $location, $c
     };
 
     $scope.edit = function() {
+        if ($scope.user.townId === 'null') {
+            $scope.user.townId = null;
+        }
+
         adminUsersDataSvc.editUser($routeParams.username, $scope.user).$promise
             .then(function(data) {
                 noty.yes(data.message);
                 $location.path('admin/users/list');
                 $cookieStore.remove('editedUser');
             }, function(error) {
-                noty.no('Editing failed, please try again later!');
+                noty.no(error, 'Editing failed, please try again later!');
             });
     };
 
@@ -40,7 +45,11 @@ app.controller('AdminEditUserCtrl', function($scope, $routeParams, $location, $c
                 $location.path('admin/users/list');
                 $cookieStore.remove('editedUser');
             }, function(error) {
-                noty.no('Changing failed, please try again later!');
+                noty.no(error, 'Changing failed, please try again later!');
             });
+    };
+
+    $scope.cancelEditing = function() {
+        $cookieStore.remove('editedUser');
     };
 });

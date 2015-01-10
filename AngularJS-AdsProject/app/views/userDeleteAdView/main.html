@@ -3,7 +3,7 @@
         <h3 class="margin-0">Delete Ad</h3>
     </div>
     <div class="panel-body margin-bottom-0">
-        <form class="form-horizontal well bs-component margin-bottom-0" name="editAd">
+        <form class="form-horizontal well bs-component margin-bottom-0" name="deleteAd">
             <fieldset>
                 <div class="row">
                     <div class="col-xs-8">
@@ -12,7 +12,7 @@
                             <div class="col-xs-10">
                                 <div class="row">
                                     <div class="col-xs-12">
-                                        <input type="text" class="form-control" ng-model="ad.title" name="title" disabled="disabled">
+                                        <input type="text" class="form-control" data-ng-model="ad.title" name="title" disabled="disabled">
                                     </div>
                                 </div>
                             </div>
@@ -22,7 +22,7 @@
                             <div class="col-xs-10">
                                 <div class="row">
                                     <div class="col-xs-12">
-                                        <textarea class="form-control" rows="7" ng-model="ad.text" name="text" disabled="disabled"></textarea>
+                                        <textarea class="form-control" rows="7" data-ng-model="ad.text" name="text" disabled="disabled"></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -30,7 +30,7 @@
                     </div>
                     <div class="col-xs-4">
                         <div class="text-center">
-                            <img ng-src="{{ad.imageDataUrl}}">
+                            <img data-ng-src="{{ad.imageDataUrl}}">
                         </div>
                     </div>
                     <div class="col-xs-8">
@@ -39,7 +39,7 @@
                             <div class="col-xs-10">
                                 <div class="row">
                                     <div class="col-xs-12">
-                                        <input type="text" class="form-control" ng-model="ad.categoryName" name="category" disabled="disabled">
+                                        <input type="text" class="form-control" data-ng-model="ad.categoryName" name="category" disabled="disabled">
                                     </div>
                                 </div>
                             </div>
@@ -56,14 +56,14 @@
                             <div class="col-xs-10">
                                 <div class="row">
                                     <div class="col-xs-12">
-                                        <input type="text" class="form-control" ng-model="ad.townName" name="town" disabled="disabled">
+                                        <input type="text" class="form-control" data-ng-model="ad.townName" name="town" disabled="disabled">
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="col-xs-4">
-                        <a href="" class="btn btn-danger col-xs-12" ng-click="deleteAd()">Delete Ad</a>
+                        <a href="" class="btn btn-danger col-xs-12" data-ng-click="deleteAd()">Delete Ad</a>
                     </div>
                 </div>
             </fieldset>

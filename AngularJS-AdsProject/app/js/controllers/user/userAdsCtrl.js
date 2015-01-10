@@ -30,7 +30,7 @@ app.controller('UserAdsCtrl', function($scope, $route, userAdsDataSvc, authentic
                 $scope.userAds = data.ads;
                 $scope.pagingData.numPages = data.numPages;
             }, function(error) {
-                noty.no('Loading data failed, plese try again later!');
+                noty.no(error, 'Loading data failed, plese try again later!');
             });
     }
 
@@ -41,7 +41,7 @@ app.controller('UserAdsCtrl', function($scope, $route, userAdsDataSvc, authentic
                 noty.yes(data.message);
                 $route.reload();
             }, function(error) {
-                noty.no('Action failed, plese try again later!');
+                noty.no(error, 'Action failed, plese try again later!');
             });
     }
 
@@ -52,7 +52,7 @@ app.controller('UserAdsCtrl', function($scope, $route, userAdsDataSvc, authentic
                 noty.yes(data.message);
                 $route.reload();
             }, function(error) {
-                noty.no('Action failed, plese try again later!');
+                noty.no(error, 'Action failed, plese try again later!');
             });
     }
 });

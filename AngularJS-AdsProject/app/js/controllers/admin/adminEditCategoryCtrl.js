@@ -15,7 +15,7 @@ app.controller('AdminEditCategoryCtrl', function($scope, $location, $routeParams
                 noty.yes(data.message);
                 $location.path('admin/categories/list');
             }, function(error) {
-                noty.no('Editing failed, please try again later!');
+                noty.no(error, 'Editing failed, please try again later!');
             });
     };
 });

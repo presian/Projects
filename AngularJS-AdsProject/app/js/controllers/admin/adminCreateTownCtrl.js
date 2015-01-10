@@ -15,7 +15,7 @@ app.controller('AdminCreateTownCtrl', function($scope, $location, adminTownsData
                 noty.yes(data.message);
                 $location.path('admin/towns/list');
             }, function(error) {
-                noty.no('Creating failed, please try again later!');
+                noty.no(error, 'Creating failed, please try again later!');
             });
     };
 });

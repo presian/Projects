@@ -15,7 +15,7 @@ app.controller('AdminEditTownCtrl', function($scope, $location, $routeParams, no
                 noty.yes(data.message);
                 $location.path('admin/towns/list');
             }, function(error) {
-                noty.no('Editing failed, please try again later!');
+                noty.no(error, 'Editing failed, please try again later!');
             });
     };
 });

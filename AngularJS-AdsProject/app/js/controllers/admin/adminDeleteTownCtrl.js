@@ -15,7 +15,7 @@ app.controller('AdminDeleteTownCtrl', function($scope, $location, $routeParams, 
                 noty.yes(data.message);
                 $location.path('admin/towns/list');
             }, function(error) {
-                noty.no('Deleting failed, please try again!');
+                noty.no(error, 'Deleting failed, please try again!');
             });
     };
 });

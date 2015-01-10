@@ -107,4 +107,4 @@ var app = angular.module('app', [
                 });
         }
     ])
-    .constant('BASE_URL', 'http://localhost:1337/api/');
+    .constant('BASE_URL', 'http://softuni-ads.azurewebsites.net/api/');

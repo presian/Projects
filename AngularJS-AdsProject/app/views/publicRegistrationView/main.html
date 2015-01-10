@@ -10,15 +10,15 @@
                     <div class="col-xs-9">
                         <div class="row">
                             <div class="col-xs-10">
-                                <input type="text" class="form-control" ng-model="regData.username" name="inputName" placeholder="Name" required ng-pattern="/[\w\d_\-@#$&?!]{5,}/">
+                                <input type="text" class="form-control" data-ng-model="regData.username" name="inputName" placeholder="Name" required data-ng-pattern="/[\w\d_\-@#$&?!]{5,100}/">
                             </div>
                             <div class="col-xs-2">
-                                <img class="form-icons" src="./images/X.png" alt="X" ng-show="regForm.inputName.$error.required || regForm.inputName.$error.pattern">
-                                <img class="form-icons" src="./images/check.png" alt="checked" ng-show="!regForm.inputName.$error.required && !regForm.inputName.$error.pattern">
+                                <img class="form-icons" src="./images/X.png" alt="X" data-ng-show="regForm.inputName.$error.required || regForm.inputName.$error.pattern">
+                                <img class="form-icons" src="./images/check.png" alt="checked" data-ng-show="!regForm.inputName.$error.required && !regForm.inputName.$error.pattern">
                             </div>
                         </div>
-                        <span ng-show="regForm.inputName.$error.required">Required! Allowed symbols: A-Z, a-z, 0-9, _-@#$&?!</span>
-                        <span ng-show="regForm.inputName.$error.pattern">Allowed symbols (at least 5): A-Z, a-z, 0-9, _-@#$&?!</span>
+                        <span data-ng-show="regForm.inputName.$error.required">Required! Allowed symbols: A-Z, a-z, 0-9, _-@#$&?!</span>
+                        <span data-ng-show="regForm.inputName.$error.pattern">Allowed symbols (5-100): A-Z, a-z, 0-9, _-@#$&?!</span>
                     </div>
                 </div>
                 <div class="form-group">
@@ -26,15 +26,15 @@
                     <div class="col-xs-9">
                         <div class="row">
                             <div class="col-xs-10">
-                                <input type="password" class="form-control" ng-model="regData.password" name="inputPassword" placeholder="Password" required ng-pattern="/[\w\d_\-@#$&?!]{5,}/">
+                                <input type="password" class="form-control" data-ng-model="regData.password" name="inputPassword" placeholder="Password" required data-ng-pattern="/[\w\d_\-@#$&?!]{5,100}/">
                             </div>
                             <div class="col-xs-2">
-                                <img class="form-icons" src="./images/X.png" alt="X" ng-show="regForm.inputPassword.$error.required || regForm.inputPassword.$error.pattern">
-                                <img class="form-icons" src="./images/check.png" alt="checked" ng-show="!regForm.inputPassword.$error.required && !regForm.inputPassword.$error.pattern">
+                                <img class="form-icons" src="./images/X.png" alt="X" data-ng-show="regForm.inputPassword.$error.required || regForm.inputPassword.$error.pattern">
+                                <img class="form-icons" src="./images/check.png" alt="checked" data-ng-show="!regForm.inputPassword.$error.required && !regForm.inputPassword.$error.pattern">
                             </div>
                         </div>
-                        <span ng-show="regForm.inputPassword.$error.required">Required! Allowed symbols: A-Z, a-z, 0-9, _-@#$&?!</span>
-                        <span ng-show="regForm.inputPassword.$error.pattern">Allowed symbols (at least 5): A-Z, a-z, 0-9, _-@#$&?!</span>
+                        <span data-ng-show="regForm.inputPassword.$error.required">Required! Allowed symbols: A-Z, a-z, 0-9, _-@#$&?!</span>
+                        <span data-ng-show="regForm.inputPassword.$error.pattern">Allowed symbols (5-100): A-Z, a-z, 0-9, _-@#$&?!</span>
                     </div>
                 </div>
                 <div class="form-group">
@@ -42,16 +42,15 @@
                     <div class="col-xs-9">
                         <div class="row">
                             <div class="col-xs-10">
-                                <input type="password" class="form-control" ng-model="regData.confirmPassword" name="inputConfirmPassword" placeholder="Confirm password" required ng-pattern="/[\w\d_\-@#$&?!]{5,}/" data-match="regData.password">
+                                <input type="password" class="form-control" data-ng-model="regData.confirmPassword" name="inputConfirmPassword" placeholder="Confirm password" required data-ng-pattern="/[\w\d_\-@#$&?!]{5,}/" data-match="regData.password">
                             </div>
                             <div class="col-xs-2">
-                                <img class="form-icons" src="./images/X.png" alt="X" ng-show="regForm.inputConfirmPassword.$error.required || regForm.inputConfirmPassword.$error.pattern || regForm.inputConfirmPassword.$error.match">
-                                <img class="form-icons" src="./images/check.png" alt="checked" ng-show="!regForm.inputConfirmPassword.$error.required && !regForm.inputConfirmPassword.$error.pattern && !regForm.inputConfirmPassword.$error.match">
+                                <img class="form-icons" src="./images/X.png" alt="X" data-ng-show="regForm.inputConfirmPassword.$error.required || regForm.inputConfirmPassword.$error.pattern || regForm.inputConfirmPassword.$error.match">
+                                <img class="form-icons" src="./images/check.png" alt="checked" data-ng-show="!regForm.inputConfirmPassword.$error.required && !regForm.inputConfirmPassword.$error.pattern && !regForm.inputConfirmPassword.$error.match">
                             </div>
                         </div>
-                        <span ng-show="regForm.inputConfirmPassword.$error.required">Required! Allowed symbols: A-Z, a-z, 0-9, _-@#$&?!</span>
-                        <!-- <span ng-show="regForm.inputConfirmPassword.$error.pattern">Allowed symbols (at least 5): A-Z, a-z, 0-9, _-@#$&?!</span> -->
-                        <span ng-show="regForm.inputConfirmPassword.$error.match">This password is not same!</span>
+                        <span data-ng-show="regForm.inputConfirmPassword.$error.required">Required! Allowed symbols: A-Z, a-z, 0-9, _-@#$&?!</span>
+                        <span data-ng-show="regForm.inputConfirmPassword.$error.match">This password is not same!</span>
                     </div>
                 </div>
                 <div class="form-group">
@@ -59,15 +58,15 @@
                     <div class="col-xs-9">
                         <div class="row">
                             <div class="col-xs-10">
-                                <input type="text" class="form-control" ng-model="regData.name" name="inputFullName" placeholder="Name" required ng-pattern="/[\w\d_\-@#$&?!]{3,}/">
+                                <input type="text" class="form-control" data-ng-model="regData.name" name="inputFullName" placeholder="Name" required data-ng-pattern="/[\w\d_\-@#$&?!]{3,}/">
                             </div>
                             <div class="col-xs-2">
-                                <img class="form-icons" src="./images/X.png" alt="X" ng-show="regForm.inputFullName.$error.required || regForm.inputFullName.$error.pattern">
-                                <img class="form-icons" src="./images/check.png" alt="checked" ng-show="!regForm.inputFullName.$error.required && !regForm.inputFullName.$error.pattern">
+                                <img class="form-icons" src="./images/X.png" alt="X" data-ng-show="regForm.inputFullName.$error.required || regForm.inputFullName.$error.pattern">
+                                <img class="form-icons" src="./images/check.png" alt="checked" data-ng-show="!regForm.inputFullName.$error.required && !regForm.inputFullName.$error.pattern">
                             </div>
                         </div>
-                        <span ng-show="regForm.inputFullName.$error.required">Required! Allowed symbols: A-Z, a-z, 0-9, _-@#$&?!</span>
-                        <span ng-show="regForm.inputFullName.$error.pattern">Allowed symbols (at least 3): A-Z, a-z, 0-9, _-@#$&?!</span>
+                        <span data-ng-show="regForm.inputFullName.$error.required">Required! Allowed symbols: A-Z, a-z, 0-9, _-@#$&?!</span>
+                        <span data-ng-show="regForm.inputFullName.$error.pattern">Allowed symbols (at least 3): A-Z, a-z, 0-9, _-@#$&?!</span>
                     </div>
                 </div>
                 <div class="form-group">
@@ -75,30 +74,31 @@
                     <div class="col-xs-9">
                         <div class="row">
                             <div class="col-xs-10">
-                                <input type="email" class="form-control" ng-model="regData.email" name="inputEmail" placeholder="Name" required>
+                                <input type="email" class="form-control" data-ng-model="regData.email" name="inputEmail" placeholder="Name" required>
                             </div>
                             <div class="col-xs-2">
-                                <img class="form-icons" src="./images/X.png" alt="X" ng-show="regForm.inputEmail.$error.required || regForm.inputEmail.$invalid">
-                                <img class="form-icons" src="./images/check.png" alt="checked" ng-show="!regForm.inputEmail.$error.required && !regForm.inputEmail.$invalid">
+                                <img class="form-icons" src="./images/X.png" alt="X" data-ng-show="regForm.inputEmail.$error.required || regForm.inputEmail.$invalid">
+                                <img class="form-icons" src="./images/check.png" alt="checked" data-ng-show="!regForm.inputEmail.$error.required && !regForm.inputEmail.$invalid">
                             </div>
                         </div>
-                        <span ng-show="regForm.inputEmail.$error.required">Required!</span>
-                        <span ng-show="regForm.inputEmail.$invalid && !regForm.inputEmail.$error.required">Please enter valid e-mail!</span>
+                        <span data-ng-show="regForm.inputEmail.$error.required">Required!</span>
+                        <span data-ng-show="regForm.inputEmail.$invalid && !regForm.inputEmail.$error.required">Please enter valid e-mail!</span>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="inputPhone" class="col-xs-3 control-label">Phone</label>
+                    <label for="inputPhone" class="col-xs-3 control-label">Phone*</label>
                     <div class="col-xs-9">
                         <div class="row">
                             <div class="col-xs-10">
-                                <input type="text" class="form-control" ng-model="regData.phone" name="inputPhone" placeholder="Name" ng-pattern="/[\d\-+()]{5,}/">
+                                <input type="text" class="form-control" data-ng-model="regData.phone" name="inputPhone" placeholder="Name" data-ng-pattern="/[\d\-+()]{5,}/" required>
                             </div>
                             <div class="col-xs-2">
-                                <img class="form-icons" src="./images/X.png" alt="X" ng-show="regForm.inputPhone.$error.pattern">
-                                <img class="form-icons" src="./images/check.png" alt="checked" ng-show="!regForm.inputPhone.$error.pattern">
+                                <img class="form-icons" src="./images/X.png" alt="X" data-ng-show="regForm.inputPhone.$error.pattern || regForm.inputPhone.$error.required">
+                                <img class="form-icons" src="./images/check.png" alt="checked" data-ng-show="!regForm.inputPhone.$error.pattern && !regForm.inputPhone.$error.required">
                             </div>
                         </div>
-                        <span ng-show="regForm.inputPhone.$error.pattern">Allowed symbols (at least 5): [0-9]-()+</span>
+                        <span data-ng-show="regForm.inputPhone.$error.required">Requred!</span>
+                        <span data-ng-show="regForm.inputPhone.$error.pattern">Allowed symbols (at least 5): [0-9]-()+</span>
                     </div>
                 </div>
                 <div class="form-group">
@@ -106,9 +106,9 @@
                     <div class="col-xs-9">
                         <div class="row">
                             <div class="col-xs-10">
-                                <select name="inputTown" class="form-control" ng-model="regData.townId">
+                                <select name="inputTown" class="form-control" data-ng-model="regData.townId">
                                     <option value="">None</option>
-                                    <option value="{{town.id}}" ng-repeat=" town in towns">{{town.name}}</option>
+                                    <option value="{{town.id}}" data-ng-repeat=" town in towns">{{town.name}}</option>
                                 </select>
                             </div>
                             <div class="col-xs-2">
@@ -122,7 +122,7 @@
                         <div class="row ">
                             <div class="col-xs-7 ">
                                 <div class="pull-left ">
-                                    <button type="button " class="btn btn-success " ng-disabled="regForm.$invalid " ng-click="makeRegistration() ">Register</button>
+                                    <button type="button " class="btn btn-success " data-ng-disabled="regForm.$invalid " data-ng-click="makeRegistration() ">Register</button>
                                 </div>
                             </div>
                             <div class="col-xs-3 ">

@@ -36,7 +36,7 @@ app.controller('LoginCtrl', function($scope, $resource, $location,
                     noty.yes('Login successfuly');
                 },
                 function(error) {
-                    noty.no('Login failed, please try again later!');
+                    noty.no(error, 'Login failed, please try again later!');
                 }
             );
     };
