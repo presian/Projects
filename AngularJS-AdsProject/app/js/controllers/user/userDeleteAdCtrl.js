@@ -5,7 +5,7 @@ app.controller('UserDeleteAdCtrl', function($scope, $location, $routeParams,
     authenticationSvc.checkUser();
     $scope.pageTitle = 'Delete Ad';
     $scope.ad = userAdsDataSvc.getById($routeParams.id);
-    $scope.deleteAd = function() {
+    $scope.deleteUserAd = function() {
         userAdsDataSvc.delete($routeParams.id).$promise
             .then(function(data) {
                 noty.yes(data.message);
