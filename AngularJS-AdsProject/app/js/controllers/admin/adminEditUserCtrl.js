@@ -6,16 +6,6 @@ app.controller('AdminEditUserCtrl', function($scope, $routeParams, $location, $c
     authenticationSvc.checkAdmin();
     $scope.pageTitle = 'Edit user';
     $scope.towns = categoriesAndTownsDataSvc.getTowns();
-    // $scope.user = adminUsersDataSvc.getUser($routeParams.id).$promise
-    //     .then(function(data) {
-    //         $scope.user = data;
-    //         console.log(data);
-    //         $scope.passwordData = {
-    //             username: $scope.user.username,
-    //             newPassword: '',
-    //             confirmPassword: ''
-    //         };
-    //     });
     $scope.user = $cookieStore.get('editedUser');
     $scope.passwordData = {
         username: $scope.user.username,

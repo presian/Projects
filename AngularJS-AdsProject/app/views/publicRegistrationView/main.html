@@ -10,7 +10,7 @@
                     <div class="col-xs-9">
                         <div class="row">
                             <div class="col-xs-10">
-                                <input type="text" class="form-control" data-ng-model="regData.username" name="inputName" placeholder="Name" required data-ng-pattern="/[\w\d_\-@#$&?!]{5,100}/">
+                                <input type="text" class="form-control" data-ng-model="regData.username" name="inputName" placeholder="Name" required data-ng-pattern="/^[\w\d_\-@#$&?!]{5,100}$/">
                             </div>
                             <div class="col-xs-2">
                                 <img class="form-icons" src="./images/X.png" alt="X" data-ng-show="regForm.inputName.$error.required || regForm.inputName.$error.pattern">
@@ -28,7 +28,7 @@
                     <div class="col-xs-9">
                         <div class="row">
                             <div class="col-xs-10">
-                                <input type="password" class="form-control" data-ng-model="regData.password" name="inputPassword" placeholder="Password" required data-ng-pattern="/[\w\d_\-@#$&?!]{5,100}/">
+                                <input type="password" class="form-control" data-ng-model="regData.password" name="inputPassword" placeholder="Password" required data-ng-pattern="/^[\w\d_\-@#$&?!]{5,100}$/">
                             </div>
                             <div class="col-xs-2">
                                 <img class="form-icons" src="./images/X.png" alt="X" data-ng-show="regForm.inputPassword.$error.required || regForm.inputPassword.$error.pattern">
@@ -46,7 +46,7 @@
                     <div class="col-xs-9">
                         <div class="row">
                             <div class="col-xs-10">
-                                <input type="password" class="form-control" data-ng-model="regData.confirmPassword" name="inputConfirmPassword" placeholder="Confirm password" required data-ng-pattern="/[\w\d_\-@#$&?!]{5,}/" data-match="regData.password">
+                                <input type="password" class="form-control" data-ng-model="regData.confirmPassword" name="inputConfirmPassword" placeholder="Confirm password" required data-ng-pattern="/^[\w\d_\-@#$&?!]{5,}$/" data-match="regData.password">
                             </div>
                             <div class="col-xs-2">
                                 <img class="form-icons" src="./images/X.png" alt="X" data-ng-show="regForm.inputConfirmPassword.$error.required || regForm.inputConfirmPassword.$error.pattern || regForm.inputConfirmPassword.$error.match">
@@ -64,7 +64,7 @@
                     <div class="col-xs-9">
                         <div class="row">
                             <div class="col-xs-10">
-                                <input type="text" class="form-control" data-ng-model="regData.name" name="inputFullName" placeholder="Name" required data-ng-pattern="/[\w\d_\-@#$&?!]{3,}/">
+                                <input type="text" class="form-control" data-ng-model="regData.name" name="inputFullName" placeholder="Name" required data-ng-pattern="/^[\w\d_\-@#$&?!\s]{3,}$/">
                             </div>
                             <div class="col-xs-2">
                                 <img class="form-icons" src="./images/X.png" alt="X" data-ng-show="regForm.inputFullName.$error.required || regForm.inputFullName.$error.pattern">
@@ -100,7 +100,7 @@
                     <div class="col-xs-9">
                         <div class="row">
                             <div class="col-xs-10">
-                                <input type="text" class="form-control" data-ng-model="regData.phone" name="inputPhone" placeholder="Name" data-ng-pattern="/[\d\-+()]{5,}/" required>
+                                <input type="text" class="form-control" data-ng-model="regData.phone" name="inputPhone" placeholder="Name" data-ng-pattern="/^[\d\-+()]{5,}$/" required>
                             </div>
                             <div class="col-xs-2">
                                 <img class="form-icons" src="./images/X.png" alt="X" data-ng-show="regForm.inputPhone.$error.pattern || regForm.inputPhone.$error.required">

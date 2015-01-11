@@ -12,7 +12,7 @@
                         </div>
                         <div class="row">
                             <div class="col-xs-10">
-                                <input type="text" class="form-control" data-ng-model="user.username" name="username" data-ng-pattern="/[\w\d_\-@#$&?!]{5,}/" required>
+                                <input type="text" class="form-control" data-ng-model="user.username" name="username" data-ng-pattern="/^[\w\d_\-@#$&?!]{5,100}$/" required>
 
                             </div>
                             <div class="col-xs-2">
@@ -31,7 +31,7 @@
                         </div>
                         <div class="row">
                             <div class="col-xs-10">
-                                <input type="text" class="form-control" data-ng-model="user.name" name="name" data-ng-pattern="/[\w\d_\-@#$&?!]{3,}/" required>
+                                <input type="text" class="form-control" data-ng-model="user.name" name="name" data-ng-pattern="/^[\w\d_\-@#$&?!\s]{3,}$/" required>
 
                             </div>
                             <div class="col-xs-2">
@@ -68,7 +68,7 @@
                         </div>
                         <div class="row">
                             <div class="col-xs-10">
-                                <input type="text" class="form-control" data-ng-model="user.phoneNumber" name="phone" data-ng-pattern="/[\d\-+()]{5,}/" required>
+                                <input type="text" class="form-control" data-ng-model="user.phoneNumber" name="phone" data-ng-pattern="/^[\d\-+()]{5,}$/" required>
 
                             </div>
                             <div class="col-xs-2">
@@ -141,7 +141,7 @@
                         </div>
                         <div class="row">
                             <div class="col-xs-10">
-                                <input type="password" class="form-control" data-ng-model="passwordData.newPassword" name="newPass" required data-ng-pattern="/[\w\d_\-@#$&?!]{5,}/">
+                                <input type="password" class="form-control" data-ng-model="passwordData.newPassword" name="newPass" required data-ng-pattern="/^[\w\d_\-@#$&?!]{5,}$/">
                             </div>
                             <div class="col-xs-2">
                                 <img class="form-icons" src="./images/X.png" alt="X" data-ng-show="changePassword.newPass.$error.required || changePassword.newPass.$error.pattern">
@@ -159,7 +159,7 @@
                         </div>
                         <div class="row">
                             <div class="col-xs-10">
-                                <input type="password" class="form-control" data-ng-model="passwordData.confirmPassword" name="confirmPass" required data-ng-pattern="/[\w\d_\-@#$&?!]{5,}/" data-match="passwordData.newPassword">
+                                <input type="password" class="form-control" data-ng-model="passwordData.confirmPassword" name="confirmPass" required data-ng-pattern="/^[\w\d_\-@#$&?!]{5,}$/" data-match="passwordData.newPassword">
                             </div>
                             <div class="col-xs-2">
                                 <img class="form-icons" src="./images/X.png" alt="X" data-ng-show="changePassword.confirmPass.$error.required || changePassword.confirmPass.$error.pattern || changePassword.confirmPass.$error.match">

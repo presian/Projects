@@ -12,7 +12,7 @@
                         </div>
                         <div class="row">
                             <div class="col-xs-10">
-                                <input type="text" class="form-control" data-ng-model="user.name" name="name" data-ng-pattern="/[\w\d_\-@#$&?!]{5,}/" required>
+                                <input type="text" class="form-control" data-ng-model="user.name" name="name" data-ng-pattern="/^[\w\d_\-@#$&?!\s]{5,100}$/" required>
 
                             </div>
                             <div class="col-sx-2"><img class="form-icons" src="./images/X.png" alt="X" data-ng-show="editProfile.name.$error.required || editProfile.name.$error.pattern">
@@ -48,7 +48,7 @@
                         </div>
                         <div class="row">
                             <div class="col-xs-10">
-                                <input type="text" class="form-control" data-ng-model="user.phoneNumber" name="phone" data-ng-pattern="/[\d\-+()]{5,}/" required>
+                                <input type="text" class="form-control" data-ng-model="user.phoneNumber" name="phone" data-ng-pattern="/^[\d\-+()]{5,}$/" required>
                             </div>
 
                             <div class="col-sx-2"><img class="form-icons" src="./images/X.png" alt="X" data-ng-show="editProfile.phone.$error.pattern || editProfile.phone.$error.required">
@@ -103,7 +103,7 @@
                         </div>
                         <div class="row">
                             <div class="col-xs-10">
-                                <input type="password" class="form-control" data-ng-model="passwordData.oldPassword" name="oldPass" required data-ng-pattern="/[\w\d_\-@#$&?!]{5,100}/">
+                                <input type="password" class="form-control" data-ng-model="passwordData.oldPassword" name="oldPass" required data-ng-pattern="/^[\w\d_\-@#$&?!]{5,100}$/">
                             </div>
                             <div class="col-sx-2">
                                 <img class="form-icons" src="./images/X.png" alt="X" data-ng-show="changePassword.oldPass.$error.required || changePassword.oldPass.$error.pattern">
@@ -121,7 +121,7 @@
                         </div>
                         <div class="row">
                             <div class="col-xs-10">
-                                <input type="password" class="form-control" data-ng-model="passwordData.newPassword" name="newPass" required data-ng-pattern="/[\w\d_\-@#$&?!]{5,100}/">
+                                <input type="password" class="form-control" data-ng-model="passwordData.newPassword" name="newPass" required data-ng-pattern="/^[\w\d_\-@#$&?!]{5,100}$/">
                             </div>
                             <div class="col-sx-2">
                                 <img class="form-icons" src="./images/X.png" alt="X" data-ng-show="changePassword.newPass.$error.required || changePassword.newPass.$error.pattern">
@@ -139,7 +139,7 @@
                         </div>
                         <div class="row">
                             <div class="col-xs-10">
-                                <input type="password" class="form-control" data-ng-model="passwordData.confirmPassword" name="confirmPass" required data-ng-pattern="/[\w\d_\-@#$&?!]{5,100}/" data-match="passwordData.newPassword">
+                                <input type="password" class="form-control" data-ng-model="passwordData.confirmPassword" name="confirmPass" required data-ng-pattern="/^[\w\d_\-@#$&?!]{5,100}$/" data-match="passwordData.newPassword">
                             </div>
                             <div class="col-sx-2"><img class="form-icons" src="./images/X.png" alt="X" data-ng-show="changePassword.confirmPass.$error.required || changePassword.confirmPass.$error.pattern || changePassword.confirmPass.$error.match">
                                 <img class="form-icons" src="./images/check.png" alt="checked" data-ng-show="!changePassword.confirmPass.$error.required && !changePassword.confirmPass.$error.pattern && !changePassword.confirmPass.$error.match">

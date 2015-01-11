@@ -12,16 +12,17 @@
                             <div class="col-xs-10">
                                 <div class="row">
                                     <div class="col-xs-10">
-                                        <input type="text" class="form-control" data-ng-model="ad.title" name="title" required>
+                                        <input type="text" class="form-control" data-ng-model="ad.title" name="title" data-ng-pattern="/^[\w\d_\-@#$€&?!\.,\s:]{2,}$/" required>
                                     </div>
                                     <div class="col-xs-2">
-                                        <img class="form-icons" src="./images/X.png" alt="X" data-ng-show="editAd.title.$error.required">
-                                        <img class="form-icons" src="./images/check.png" alt="checked" data-ng-show="!editAd.title.$error.required">
+                                        <img class="form-icons" src="./images/X.png" alt="X" data-ng-show="editAd.title.$error.required || editAd.title.$error.pattern">
+                                        <img class="form-icons" src="./images/check.png" alt="checked" data-ng-show="!editAd.title.$error.required && !editAd.title.$error.pattern">
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xs-2 col-xs-offset-2">
+                            <div class="col-xs-10 col-xs-offset-2">
                                 <span data-ng-show="editAd.title.$error.required">Required!</span>
+                                <span data-ng-show="editAd.title.$error.pattern">Allowed symbols (at least 2): A-Z, a-z, 0-9, _-@#€$&?!!</span>
                             </div>
                         </div>
                         <div class="form-group">
@@ -29,16 +30,17 @@
                             <div class="col-xs-10">
                                 <div class="row">
                                     <div class="col-xs-10">
-                                        <textarea class="form-control" rows="7" data-ng-model="ad.text" name="text" required></textarea>
+                                        <textarea class="form-control" rows="7" data-ng-model="ad.text" name="text" data-ng-pattern="/^[\w\d_\-@#$€&?!\.,\s:]{2,}$/" required></textarea>
                                     </div>
                                     <div class="col-xs-2">
-                                        <img class="form-icons" src="./images/X.png" alt="X" data-ng-show="editAd.text.$error.required">
-                                        <img class="form-icons" src="./images/check.png" alt="checked" data-ng-show="!editAd.text.$error.required">
+                                        <img class="form-icons" src="./images/X.png" alt="X" data-ng-show="editAd.text.$error.required || editAd.text.$error.pattern">
+                                        <img class="form-icons" src="./images/check.png" alt="checked" data-ng-show="!editAd.text.$error.required && !editAd.text.$error.pattern">
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xs-2 col-xs-offset-2">
+                            <div class="col-xs-10 col-xs-offset-2">
                                 <span data-ng-show="editAd.text.$error.required">Required!</span>
+                                <span data-ng-show="editAd.text.$error.pattern">Allowed symbols (at least 2): A-Z, a-z, 0-9, _-@#€$&?!!</span>
                             </div>
                         </div>
                     </div>
@@ -53,12 +55,16 @@
                             <div class="col-xs-10">
                                 <div class="row">
                                     <div class="col-xs-10">
-                                        <input type="text" name="username" class="form-control" data-ng-model="ad.ownerUsername">
+                                        <input type="text" name="username" class="form-control" data-ng-model="ad.ownerUsername" data-ng-pattern="/^[\w\d_\-@#$&?!]{5,100}$/">
                                     </div>
                                     <div class="col-xs-2">
-                                        <img class="form-icons" src="./images/check.png" alt="checked">
+                                        <img class="form-icons" src="./images/X.png" alt="X" data-ng-show=" editAd.username.$error.pattern">
+                                        <img class="form-icons" src="./images/check.png" alt="checked" data-ng-show="!editAd.username.$error.pattern">
                                     </div>
                                 </div>
+                            </div>
+                            <div class="col-xs-10 col-xs-offset-2">
+                                <span data-ng-show="editAd.username.$error.pattern">Allowed symbols (at least 2): A-Z, a-z, 0-9, _-@#€$&?!!</span>
                             </div>
                         </div>
                     </div>
@@ -150,8 +156,7 @@
                                         </p>
                                     </div>
                                     <div class="col-xs-2">
-                                        <img class="form-icons" src="./images/X.png" alt="X" data-ng-show="editAd.town.$error.required">
-                                        <img class="form-icons" src="./images/check.png" alt="checked" data-ng-show="!editAd.town.$error.required">
+                                        <img class="form-icons" src="./images/check.png" alt="checked">
                                     </div>
                                 </div>
                             </div>
