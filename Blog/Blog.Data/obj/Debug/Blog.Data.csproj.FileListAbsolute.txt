@@ -1,0 +1,16 @@
+E:\Code\MyProjects\Blog\Blog.Data\bin\Debug\Blog.Data.dll.config
+E:\Code\MyProjects\Blog\Blog.Data\bin\Debug\Blog.Data.dll
+E:\Code\MyProjects\Blog\Blog.Data\bin\Debug\Blog.Data.pdb
+E:\Code\MyProjects\Blog\Blog.Data\bin\Debug\EntityFramework.dll
+E:\Code\MyProjects\Blog\Blog.Data\bin\Debug\EntityFramework.SqlServer.dll
+E:\Code\MyProjects\Blog\Blog.Data\bin\Debug\EntityFramework.xml
+E:\Code\MyProjects\Blog\Blog.Data\bin\Debug\EntityFramework.SqlServer.xml
+E:\Code\MyProjects\Blog\Blog.Data\obj\Debug\Blog.Data.csprojResolveAssemblyReference.cache
+E:\Code\MyProjects\Blog\Blog.Data\obj\Debug\Blog.Data.dll
+E:\Code\MyProjects\Blog\Blog.Data\obj\Debug\Blog.Data.pdb
+E:\Code\MyProjects\Blog\Blog.Data\bin\Debug\Blog.Models.dll
+E:\Code\MyProjects\Blog\Blog.Data\bin\Debug\Blog.Models.pdb
+E:\Code\MyProjects\Blog\Blog.Data\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+E:\Code\MyProjects\Blog\Blog.Data\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\Code\MyProjects\Blog\Blog.Data\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+E:\Code\MyProjects\Blog\Blog.Data\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
