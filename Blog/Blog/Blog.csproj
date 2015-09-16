@@ -168,6 +168,9 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
+    <Compile Include="Areas\Administration\Controllers\ArticlesController.cs" />
+    <Compile Include="Areas\Administration\Controllers\BaseAdminController.cs" />
+    <Compile Include="Areas\Administration\Controllers\UsersController.cs" />
     <Compile Include="Areas\User\UserAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -191,6 +194,10 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\Administration\Views\web.config" />
     <Content Include="Areas\User\Views\web.config" />
+    <Content Include="Areas\Administration\Views\Users\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Administration\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Administration\Views\Articles\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -240,9 +247,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Administration\Controllers\" />
     <Folder Include="Areas\Administration\Models\" />
-    <Folder Include="Areas\Administration\Views\Shared\" />
+    <Folder Include="Areas\Administration\Views\BaseAdmin\" />
     <Folder Include="Areas\User\Controllers\" />
     <Folder Include="Areas\User\Models\" />
     <Folder Include="Areas\User\Views\Shared\" />
@@ -263,6 +269,10 @@
     <ProjectReference Include="..\Blog.Models\Blog.Models.csproj">
       <Project>{530091ad-66e8-4468-b95d-de8571d70166}</Project>
       <Name>Blog.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Blog.UnitOfWork\Blog.UnitOfWork.csproj">
+      <Project>{2841EDE5-5911-4BC5-AE51-4031B0A8801F}</Project>
+      <Name>Blog.UnitOfWork</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
